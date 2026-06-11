@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farah Benchikha | Cloud & Full-Stack Engineer | ESPRIT × BPU</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+</head>
+<body>
+    <!-- Loader -->
+    <div class="loader" id="loader">
+        <div class="loader-content">
+            <div class="loader-spinner"></div>
+            <div class="loader-text">Loading...</div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">Farah<span>Benchikha</span></a>
+            <div class="nav-links">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#achievements" class="nav-link">Achievements</a>
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+            <div class="menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-particles" id="particles"></div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="hero-badge">
+                    <span class="badge-dot"></span>
+                    Double Degree Student 🇹🇳 🇨🇳
+                </div>
+                <h1 class="hero-title">
+                    Hi, I'm <span class="gradient-text">Farah</span><br>
+                    <span class="rotating-titles">
+                        <span class="title-item">Cloud Engineer ☁️</span>
+                        <span class="title-item">DevOps Engineer 🚀</span>
+                        <span class="title-item">Full-Stack Developer 💻</span>
+                        <span class="title-item">Creative Problem Solver 🎨</span>
+                        <span class="title-item">ML Enthusiast 🤖</span>
+                    </span>
+                </h1>
+                <p class="hero-desc">
+                    Passionate software developer and Cloud Computing engineering student at ESPRIT & Beijing Polytechnic University. 
+                    Hands-on experience across cloud infrastructure, DevOps, backend, and frontend development.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn-primary">
+                        <i class="fas fa-paper-plane"></i> Get In Touch
+                    </a>
+                    <a href="assets/images/projects/FarahBENCHIKHA_CV_Anglais.pdf" class="btn-outline" download>
+                        <i class="fas fa-download"></i> Download CV
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">12+</span>
+                        <span class="stat-label">Projects</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">6+</span>
+                        <span class="stat-label">Certifications</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">2</span>
+                        <span class="stat-label">Countries</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="image-wrapper">
+                    <div class="image-glow"></div>
+                    <i class="fas fa-cloud-upload-alt floating-icon cloud-icon"></i>
+                    <i class="fas fa-code floating-icon code-icon"></i>
+                    <i class="fas fa-database floating-icon db-icon"></i>
+                    <div class="hero-avatar">
+                        <img src="assets/images/photo%20linkedin.jpg" alt="Farah Benchikha">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse"></div>
+            <span>Scroll</span>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">MY SERVICES</span>
+                <h2 class="section-title">I design and code beautiful things,<br>and I love what I do.</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                    </div>
+                    <h3>Cloud & DevOps</h3>
+                    <p>Azure infrastructure, Kubernetes, Docker, Ansible, and CI/CD pipelines for scalable deployments.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Full-Stack Development</h3>
+                    <p>Spring Boot, Angular, REST APIs, and responsive frontend with modern frameworks.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>ML & Data Science</h3>
+                    <p>Predictive analytics, clustering, deep learning with PyTorch and Scikit-learn.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <div class="section-header left-align">
+                        <span class="section-tag">ABOUT ME</span>
+                        <h2 class="section-title">It's More Than Just Work,<br>It's a Deep-Seated Passion</h2>
+                    </div>
+                    <p class="about-desc">
+                        I'm a <strong>Cloud Computing engineering student</strong> at ESPRIT, currently pursuing a <strong>double degree program with Beijing Polytechnic University (BPU)</strong> in Computer Science. 
+                        This unique opportunity allows me to study in both Tunisia and China.
+                    </p>
+                    <p class="about-desc">
+                        Passionate about building scalable systems that actually work in production — from architecture to deployment.
+                    </p>
+                    <div class="about-flags">
+                        <span class="flag"><i class="fas fa-flag-checkered"></i> Tunisia</span>
+                        <span class="flag"><i class="fas fa-globe"></i> China</span>
+                    </div>
+                    
+                    <!-- Languages Section -->
+                    <div class="languages-section">
+                        <h3><i class="fas fa-language"></i> Languages</h3>
+                        <div class="languages-grid">
+                            <div class="language-card"><div class="language-flag">🇹🇳</div><div class="language-info"><span class="language-name">Arabic</span><span class="language-level">Native</span></div></div>
+                            <div class="language-card"><div class="language-flag">🇫🇷</div><div class="language-info"><span class="language-name">French</span><span class="language-level">C1 - Advanced</span></div></div>
+                            <div class="language-card"><div class="language-flag">🇬🇧</div><div class="language-info"><span class="language-name">English</span><span class="language-level">B2 - Intermediate</span></div></div>
+                            <div class="language-card"><div class="language-flag">🇨🇳</div><div class="language-info"><span class="language-name">Chinese</span><span class="language-level">A1 - Beginner</span></div></div>
+                        </div>
+                    </div>
+
+                    <div class="about-info">
+                        <div class="info-item"><i class="fas fa-envelope"></i><span>farah.benchikha@esprit.tn</span></div>
+                        <div class="info-item"><i class="fab fa-linkedin"></i><span>linkedin.com/in/farah-benchikha</span></div>
+                        <div class="info-item"><i class="fab fa-github"></i><span>github.com/farahbenchikha</span></div>
+                    </div>
+                </div>
+                <div class="about-stats">
+                    <div class="stat-card"><div class="stat-circle" data-value="90"><span class="stat-value">90%</span></div><p>Cloud & DevOps</p></div>
+                    <div class="stat-card"><div class="stat-circle" data-value="88"><span class="stat-value">88%</span></div><p>Full-Stack</p></div>
+                    <div class="stat-card"><div class="stat-circle" data-value="75"><span class="stat-value">75%</span></div><p>Machine Learning</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">MY PROJECTS</span>
+                <h2 class="section-title">A Showcase of My Work</h2>
+            </div>
+            <div class="projects-grid">
+                <!-- Project 1: Pour la Forme -->
+                <div class="project-card">
+                    <div class="project-carousel swiper project-swiper" data-swiper="pour-la-forme">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide"><img src="assets/images/projects/marhaba%20gym.jpg" alt="Pour la Forme"></div>
+                            <div class="swiper-slide"><video controls><source src="assets/videos/scene%203d%20demo.mp4" type="video/mp4"></video></div>
+                            <div class="swiper-slide"><img src="assets/images/projects/consulterdetailsgym.png" alt="Consult details"></div>
+                            <div class="swiper-slide"><img src="assets/images/projects/creation%20salle%20de%20sport.png" alt="Create gym"></div>
+                            <div class="swiper-slide"><img src="assets/images/projects/details.png" alt="Details"></div>
+                            <div class="swiper-slide"><img src="assets/images/projects/liste%20salle%20de%20sport.png" alt="Gym list"></div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Pour la Forme</h3>
+                        <p>Integrated fitness digital platform with 7 modules: user management, sports tracking, nutrition plans, certified marketplace, appointment booking, gym subscriptions, event management. Deployed on Azure with 4-tier architecture.</p>
+                        <div class="project-tech"><span>Azure</span><span>Spring Boot</span><span>Angular</span><span>Three.js</span><span>JWT</span></div>
+                        <div class="project-links"><a href="#"><i class="fab fa-github"></i> Code</a></div>
+                    </div>
+                </div>
+
+                <!-- Project 2: ML for Retail Decision -->
+                <div class="project-card">
+                    <div class="project-carousel swiper project-swiper" data-swiper="ml-retail">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide"><video controls><source src="assets/videos/ML%20for%20Retail%20demo.mp4" type="video/mp4"></video></div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                    </div>
+                    <div class="project-content">
+                        <h3>ML for Retail Decision</h3>
+                        <p>Operational AI system with demand forecasting, real-time stockout alerts, DBSCAN clustering for product segmentation.</p>
+                        <div class="project-tech"><span>Python</span><span>Flask</span><span>Scikit-learn</span><span>Pandas</span></div>
+                        <div class="project-links"><a href="#"><i class="fab fa-github"></i> Code</a></div>
+                    </div>
+                </div>
+
+                <!-- Project 3: Wokmaster -->
+                <div class="project-card">
+                    <div class="project-carousel swiper project-swiper" data-swiper="wokmaster">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide"><img src="assets/images/projects/WokmasterClientInterface.png" alt="Client Interface"></div>
+                            <div class="swiper-slide"><img src="assets/images/projects/WokmasterClientCart.png" alt="Cart"></div>
+                            <div class="swiper-slide"><img src="assets/images/projects/wokmasterclientpasscommand.png" alt="Order"></div>
+                            <div class="swiper-slide"><img src="assets/images/projects/wokmasterManager_Orders.png" alt="Manager Orders"></div>
+                            <div class="swiper-slide"><img src="assets/images/projects/payment.png" alt="Payment"></div>
+                            <div class="swiper-slide"><img src="assets/images/projects/paymentdone.png" alt="Payment Success"></div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Wokmaster - Restaurant System</h3>
+                        <p>Full-stack web app with role-based auth (CLIENT/ADMIN) using JWT & Spring Security. Menu management, real-time order status, integrated payment system.</p>
+                        <div class="project-tech"><span>Spring Boot</span><span>Angular</span><span>JWT</span><span>MySQL</span></div>
+                        <div class="project-links"><a href="#"><i class="fab fa-github"></i> Code</a></div>
+                    </div>
+                </div>
+
+                <!-- Project 4: Eventify -->
+                <div class="project-card">
+                    <div class="project-carousel swiper project-swiper" data-swiper="eventify">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <iframe src="assets/images/projects/attestation.jpg" style="width:100%;height:100%"></iframe>
+                            </div>
+                            <div class="swiper-slide"><img src="assets/images/projects/eventify1.png" alt="Eventify 1"></div>
+                            <div class="swiper-slide"><img src="assets/images/projects/eventify2.png" alt="Eventify 2"></div>
+                            <div class="swiper-slide"><img src="assets/images/projects/eventify3.png" alt="Eventify 3"></div>
+                            <div class="swiper-slide"><img src="assets/images/projects/eventify4.png" alt="Eventify 4"></div>
+                            <div class="swiper-slide"><img src="assets/images/projects/eventify5.jpg" alt="Eventify 5"></div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Eventify - Event Manager</h3>
+                        <p>Cross-platform system: Desktop (Java/JavaFX), Web (Symfony/PHP), Mobile (FlutterFlow) with REST API. <strong>🎉 Selected for ESPRIT Project Ball 2025!</strong></p>
+                        <div class="project-tech"><span>JavaFX</span><span>Symfony</span><span>FlutterFlow</span><span>REST API</span></div>
+                        <div class="project-links"><a href="#"><i class="fab fa-github"></i> Code</a></div>
+                    </div>
+                </div>
+
+                <!-- Project 5: Photo Gallery -->
+                <div class="project-card">
+                    <div class="project-placeholder"><i class="fas fa-images"></i><p>Backend / API Project</p></div>
+                    <div class="project-content">
+                        <h3>Photo Gallery</h3>
+                        <p>Web app for photo upload with UUID naming, physical deletion synchronized with database.</p>
+                        <div class="project-tech"><span>Spring Boot</span><span>Angular</span><span>JPA/Hibernate</span><span>MySQL</span></div>
+                        <div class="project-links"><a href="#"><i class="fab fa-github"></i> Code</a></div>
+                    </div>
+                </div>
+
+                <!-- Project 6: Hotel Management -->
+                <div class="project-card">
+                    <div class="project-placeholder"><i class="fas fa-terminal"></i><p>Console Application</p></div>
+                    <div class="project-content">
+                        <h3>Hotel Management</h3>
+                        <p>Console CRUD for clients/rooms, email validation, availability tracking.</p>
+                        <div class="project-tech"><span>Spring Boot</span><span>JPA/Hibernate</span><span>MySQL</span></div>
+                        <div class="project-links"><a href="#"><i class="fab fa-github"></i> Code</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section id="achievements" class="achievements">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">ACHIEVEMENTS & EVENTS</span>
+                <h2 class="section-title">Beyond Code: Competitions & Cultural Exchange</h2>
+            </div>
+            <div class="achievements-grid">
+                <!-- AIXCYBER -->
+                <div class="achievement-card">
+                    <div class="achievement-carousel swiper achievement-swiper" data-swiper="aixcyber">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide"><img src="assets/images/aixcyber/aixcyber1.png" alt="AIxCypher 1"></div>
+                            <div class="swiper-slide"><img src="assets/images/aixcyber/aixcyber2.png" alt="AIxCypher 2"></div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                    </div>
+                    <div class="achievement-content">
+                        <h3>AIxCypher Competition</h3>
+                        <p>AI & Cybersecurity hackathon - Solving real-world security threats with AI-driven solutions.</p>
+                        <div class="achievement-tag">🤖 AI & Security</div>
+                    </div>
+                </div>
+
+                <!-- BPU DOUBLE DEGREE -->
+                <div class="achievement-card">
+                    <div class="achievement-carousel swiper achievement-swiper" data-swiper="bpu">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide"><img src="assets/images/bpu/bpu1.jpg" alt="BPU 1"></div>
+                            <div class="swiper-slide"><img src="assets/images/bpu/bpu2.jpg" alt="BPU 2"></div>
+                            <div class="swiper-slide"><img src="assets/images/bpu/bpu3.jpg" alt="BPU 3"></div>
+                            <div class="swiper-slide"><img src="assets/images/bpu/bpu4.jpg" alt="BPU 4"></div>
+                            <div class="swiper-slide"><img src="assets/images/bpu/bpu5.jpg" alt="BPU 5"></div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                    </div>
+                    <div class="achievement-content">
+                        <h3>Double Degree: ESPRIT × BPU 🇹🇳🇨🇳</h3>
+                        <p>Scholarship recipient for Computer Science double degree program at Beijing Polytechnic University.</p>
+                        <div class="achievement-tag">🎓 International Scholarship</div>
+                    </div>
+                </div>
+
+                <!-- CHINA EXCHANGE -->
+                <div class="achievement-card">
+                    <div class="achievement-carousel swiper achievement-swiper" data-swiper="china-exchange">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide"><img src="assets/images/china-exchange/china.jpg" alt="China Exchange"></div>
+                            <div class="swiper-slide"><img src="assets/images/china-exchange/p1.png" alt="China 1"></div>
+                            <div class="swiper-slide"><img src="assets/images/china-exchange/p2.png" alt="China 2"></div>
+                            <div class="swiper-slide"><img src="assets/images/china-exchange/p3.png" alt="China 3"></div>
+                            <div class="swiper-slide"><img src="assets/images/china-exchange/p4.png" alt="China 4"></div>
+                            <div class="swiper-slide"><img src="assets/images/china-exchange/p5.png" alt="China 5"></div>
+                            <div class="swiper-slide"><img src="assets/images/china-exchange/p6.png" alt="China 6"></div>
+                            <div class="swiper-slide"><img src="assets/images/china-exchange/p7.png" alt="China 7"></div>
+                            <div class="swiper-slide"><img src="assets/images/china-exchange/p8.png" alt="China 8"></div>
+                            <div class="swiper-slide"><img src="assets/images/china-exchange/p9.png" alt="China 9"></div>
+                            <div class="swiper-slide"><img src="assets/images/china-exchange/p10.png" alt="China 10"></div>
+                            <div class="swiper-slide"><img src="assets/images/china-exchange/p11.png" alt="China 11"></div>
+                            <div class="swiper-slide"><img src="assets/images/china-exchange/p12.png" alt="China 12"></div>
+                            <div class="swiper-slide"><img src="assets/images/china-exchange/p13.png" alt="China 13"></div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                    </div>
+                    <div class="achievement-content">
+                        <h3>China Exchange Learning Expedition</h3>
+                        <p>Cultural and academic exchange program discovering Chinese technology ecosystem and universities.</p>
+                        <div class="achievement-tag">🌏 Cultural Exchange</div>
+                    </div>
+                </div>
+
+                <!-- HUMANOVATORS -->
+                <div class="achievement-card">
+                    <div class="achievement-carousel swiper achievement-swiper" data-swiper="humanovators">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide"><img src="assets/images/humanovators/humanovators.png" alt="Humanovators"></div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                    </div>
+                    <div class="achievement-content">
+                        <h3>Humanovators Pitch Competition</h3>
+                        <p>Presented innovative tech-for-good solutions to a professional jury, developing public speaking and persuasion skills.</p>
+                        <div class="achievement-tag">🎤 Pitch Competition</div>
+                    </div>
+                </div>
+
+                <!-- IEEE ESPRIT -->
+                <div class="achievement-card">
+                    <div class="achievement-carousel swiper achievement-swiper" data-swiper="ieee">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide"><img src="assets/images/ieee/ieee1.jpg" alt="IEEE 1"></div>
+                            <div class="swiper-slide"><img src="assets/images/ieee/ieee2.jpg" alt="IEEE 2"></div>
+                            <div class="swiper-slide"><img src="assets/images/ieee/photoieeefarah.jpg" alt="Farah IEEE"></div>
+                            <div class="swiper-slide"><img src="assets/images/ieee/projectmanagerfarah.jpg" alt="Project Manager"></div>
+                            <div class="swiper-slide"><img src="assets/images/ieee/standsight.jpg" alt="IEEE Stand"></div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                    </div>
+                    <div class="achievement-content">
+                        <h3>IEEE ESPRIT - Project Manager</h3>
+                        <p>Led a team of 10 to manage the IEEE SIGHT ESPRIT booth at SDC. Co-presented Tech4Good - selected as finalists.</p>
+                        <div class="achievement-tag">👥 Leadership & Management</div>
+                    </div>
+                </div>
+
+                <!-- TCPC -->
+                <div class="achievement-card">
+                    <div class="achievement-carousel swiper achievement-swiper" data-swiper="tcpc">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide"><img src="assets/images/tcpc/tcpc1.jpg" alt="TCPC 1"></div>
+                            <div class="swiper-slide"><img src="assets/images/tcpc/tcpc1.png" alt="TCPC certificate"></div>
+                            <div class="swiper-slide"><img src="assets/images/tcpc/tcpc2.jpg" alt="TCPC 2"></div>
+                            <div class="swiper-slide"><img src="assets/images/tcpc/tcpc2.png" alt="TCPC award"></div>
+                            <div class="swiper-slide"><img src="assets/images/tcpc/tcpc3.png" alt="TCPC 3"></div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                    </div>
+                    <div class="achievement-content">
+                        <h3>Tunisian Collegiate Programming Contest (TCPC)</h3>
+                        <p>Competitive programming competition testing algorithmic thinking and problem-solving skills under time pressure.</p>
+                        <div class="achievement-tag">💻 Competitive Programming</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">SHARING MY JOURNEY</span>
+                <h2 class="section-title">Experience & Education</h2>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-date">2025 - Present</div><div class="timeline-content"><h3>Double Degree - Computer Science</h3><h4>ESPRIT × Beijing Polytechnic University 🇹🇳🇨🇳</h4><p>Scholarship recipient for international double degree program.</p><div class="timeline-tech"><span>Scholarship</span><span>International</span></div></div></div>
+                <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-date">Summer 2025</div><div class="timeline-content"><h3>Software Development Intern</h3><h4>ESPRIT</h4><p>Developed internship management app with Power Apps, Power Automate, SharePoint. Agile Scrum methodology.</p><div class="timeline-tech"><span>Power Apps</span><span>Power Automate</span><span>Agile</span></div></div></div>
+                <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-date">2024</div><div class="timeline-content"><h3>Initiation Intern - Customer Relations</h3><h4>BNA - National Agricultural Bank</h4><p>MoneyGram operations, card activations, customer service.</p></div></div>
+                <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-date">2024 - 2027</div><div class="timeline-content"><h3>Engineering Degree - Cloud Computing</h3><h4>ESPRIT, Tunis</h4><p>Specialized in cloud infrastructure, DevOps, full-stack.</p></div></div>
+                <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-date">2022 - 2024</div><div class="timeline-content"><h3>Preparatory Cycle - MPI/MI</h3><h4>ESPRIT, Tunis</h4><p>Mathematics, physics, and computer science fundamentals.</p></div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications -->
+    <section id="certifications" class="certifications">
+        <div class="container">
+            <div class="section-header"><span class="section-tag">CERTIFICATIONS</span><h2 class="section-title">Continuous Learning</h2></div>
+            <div class="certs-grid">
+                <div class="cert-card"><i class="fas fa-network-wired"></i><h3>CCNA</h3><p>Cisco - 2025</p></div>
+                <div class="cert-card"><i class="fas fa-brain"></i><h3>Deep Learning</h3><p>NVIDIA - 2025</p></div>
+                <div class="cert-card"><i class="fas fa-shield-alt"></i><h3>AI Anomaly Detection</h3><p>NVIDIA - 2025</p></div>
+                <div class="cert-card"><i class="fas fa-chart-line"></i><h3>Data Analytics</h3><p>Cisco - 2024</p></div>
+                <div class="cert-card"><i class="fas fa-microchip"></i><h3>AI Fundamentals</h3><p>IBM - 2024</p></div>
+                <div class="cert-card"><i class="fas fa-robot"></i><h3>Explainable AI</h3><p>WEITA - 2025</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section - Sans formulaire -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-text">
+                    <div class="section-header left-align">
+                        <span class="section-tag">GET IN TOUCH</span>
+                        <h2 class="section-title">Let's Connect</h2>
+                    </div>
+                    <p>Whether you have a brilliant project idea, need coding advice, or just want to discuss technology, I'm here to listen, assist, and collaborate.</p>
+                    
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4>Email</h4>
+                                <span>farah.benchikha@esprit.tn</span>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fab fa-linkedin"></i>
+                            <div>
+                                <h4>LinkedIn</h4>
+                                <span>linkedin.com/in/farah-benchikha</span>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fab fa-github"></i>
+                            <div>
+                                <h4>GitHub</h4>
+                                <span>github.com/farahbenchikha</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo"><h3>Farah<span>Benchikha</span></h3><p>Cloud Computing Engineer | Double Degree 🇹🇳🇨🇳</p></div>
+                <div class="footer-links"><a href="#home">Home</a><a href="#about">About</a><a href="#projects">Projects</a><a href="#contact">Contact</a></div>
+                <div class="footer-social"><a href="#"><i class="fab fa-linkedin"></i></a><a href="#"><i class="fab fa-github"></i></a></div>
+            </div>
+            <div class="footer-bottom"><p>&copy; 2026 Farah Benchikha. All rights reserved.</p></div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
