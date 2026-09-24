@@ -571,8 +571,8 @@ if (contactForm) {
             drawTorso(ctx, charX, charY);
             drawArms(ctx, charX, charY, current, time);
             drawLaptop(ctx, centerX, 350, time);
-            drawHead(ctx, charX, charY - 80, current, time);
-            drawHeadset(ctx, charX, charY - 80, current);
+            drawHead(ctx, charX, charY - 60, current, time);
+            drawHeadset(ctx, charX, charY - 60, current);
 
             requestAnimationFrame(render);
         }
@@ -761,6 +761,10 @@ if (contactForm) {
             ctx.save();
             ctx.translate(x, y);
             ctx.rotate(state.headAngle);
+
+            // Neck connecting head to torso
+            ctx.fillStyle = '#FFDFC4';
+            ctx.fillRect(-12, 20, 24, 38);
 
             ctx.fillStyle = '#1A1A1A';
             ctx.beginPath();

@@ -237,8 +237,10 @@ body {
     font-size: 1.5rem;
     cursor: pointer;
     color: var(--light);
+}
+
 /* ==================== INTERACTIVE PORTFOLIO HERO (SRI TECH STYLE) ==================== */
-.interactive-hero {
+.hero.interactive-hero {
     min-height: 100vh;
     position: relative;
     background: radial-gradient(circle at 50% 45%, #FFFFFF 0%, #FDF2F4 30%, #F4D7DE 60%, #8C2D42 90%, #4A1525 100%);
@@ -249,6 +251,10 @@ body {
     overflow: hidden;
     padding: 6rem 2rem 3rem;
     transition: background 0.5s ease;
+}
+
+.hero.interactive-hero::before {
+    display: none !important;
 }
 
 .hero-bg-glow {
