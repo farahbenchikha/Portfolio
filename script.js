@@ -1127,3 +1127,331 @@ function closeCertModal() {
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') closeCertModal();
 });
+
+// ==================== SCROLL PROGRESS INDICATOR ====================
+window.addEventListener('scroll', () => {
+    const progressBar = document.getElementById('scrollProgress');
+    if (progressBar) {
+        const totalScroll = document.documentElement.scrollHeight - window.innerHeight;
+        const currentProgress = totalScroll > 0 ? (window.scrollY / totalScroll) * 100 : 0;
+        progressBar.style.width = `${currentProgress}%`;
+    }
+});
+
+// ==================== NEURAL & CLOUD CANVAS BACKGROUND ====================
+(function initNeuralCanvas() {
+    const canvas = document.getElementById('neuralCanvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    let width, height;
+    let particles = [];
+    let mouse = { x: -1000, y: -1000 };
+
+    function resize() {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resize);
+    resize();
+
+    window.addEventListener('mousemove', (e) => {
+        mouse.x = e.clientX;
+        mouse.y = e.clientY;
+    });
+
+    const colors = ['#ff2a85', '#00f2fe', '#a855f7', '#38bdf8'];
+
+    class Particle {
+        constructor() {
+            this.x = Math.random() * width;
+            this.y = Math.random() * height;
+            this.vx = (Math.random() - 0.5) * 0.8;
+            this.vy = (Math.random() - 0.5) * 0.8;
+            this.radius = Math.random() * 2 + 1;
+            this.color = colors[Math.floor(Math.random() * colors.length)];
+        }
+
+        update() {
+            this.x += this.vx;
+            this.y += this.vy;
+
+            if (this.x < 0 || this.x > width) this.vx *= -1;
+            if (this.y < 0 || this.y > height) this.vy *= -1;
+
+            // Interactive repulsion from mouse
+            const dx = mouse.x - this.x;
+            const dy = mouse.y - this.y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < 120) {
+                const angle = Math.atan2(dy, dx);
+                this.x -= Math.cos(angle) * 1.5;
+                this.y -= Math.sin(angle) * 1.5;
+            }
+        }
+
+        draw() {
+            ctx.fillStyle = this.color;
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+            ctx.fill();
+        }
+    }
+
+    const particleCount = Math.min(Math.floor(window.innerWidth / 20), 65);
+    for (let i = 0; i < particleCount; i++) {
+        particles.push(new Particle());
+    }
+
+    function animateNeural() {
+        ctx.clearRect(0, 0, width, height);
+
+        for (let i = 0; i < particles.length; i++) {
+            particles[i].update();
+            particles[i].draw();
+
+            for (let j = i + 1; j < particles.length; j++) {
+                const dx = particles[i].x - particles[j].x;
+                const dy = particles[i].y - particles[j].y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+
+                if (dist < 130) {
+                    ctx.strokeStyle = `rgba(255, 42, 133, ${0.25 * (1 - dist / 130)})`;
+                    ctx.lineWidth = 0.8;
+                    ctx.beginPath();
+                    ctx.moveTo(particles[i].x, particles[i].y);
+                    ctx.lineTo(particles[j].x, particles[j].y);
+                    ctx.stroke();
+                }
+            }
+        }
+        requestAnimationFrame(animateNeural);
+    }
+    animateNeural();
+})();
+
+// ==================== INTERACTIVE CYBER TERMINAL CLI ====================
+function runTerminalCmd(command) {
+    const input = document.getElementById('terminalInput');
+    if (input) {
+        input.value = command;
+        processTerminalInput(command);
+    }
+}
+
+function processTerminalInput(rawCmd) {
+    const cmd = rawCmd.trim().toLowerCase();
+    const history = document.getElementById('terminalHistory');
+    const input = document.getElementById('terminalInput');
+    if (!history) return;
+
+    if (input) input.value = '';
+
+    if (cmd === 'clear') {
+        history.innerHTML = '';
+        playCyberSound('click');
+        return;
+    }
+
+    // Add prompt line to history
+    const userLine = document.createElement('div');
+    userLine.className = 'terminal-output-line';
+    userLine.innerHTML = `<span class="t-pink">farah@engineer</span>:<span class="t-cyan">~</span>$ ${escapeHtml(rawCmd)}`;
+    history.appendChild(userLine);
+
+    let outputHtml = '';
+
+    switch (cmd) {
+        case 'help':
+            outputHtml = `
+                <div class="t-pink">Available Commands:</div>
+                <div class="t-cyan">  help        <span class="t-dim">- Display command list</span></div>
+                <div class="t-cyan">  skills      <span class="t-dim">- Query Cloud, DevSecOps & AI technical stack</span></div>
+                <div class="t-cyan">  certs       <span class="t-dim">- Inspect verified certifications & diplomas</span></div>
+                <div class="t-cyan">  aws-status  <span class="t-dim">- Check live AWS Cloud & EKS cluster status</span></div>
+                <div class="t-cyan">  ai-pipeline <span class="t-dim">- Trigger simulated PyTorch anomaly training</span></div>
+                <div class="t-cyan">  cat bio.txt <span class="t-dim">- Read bio & double degree credentials</span></div>
+                <div class="t-cyan">  clear       <span class="t-dim">- Clear terminal screen</span></div>
+            `;
+            break;
+
+        case 'skills':
+            outputHtml = `
+                <div class="t-yellow">☁️ Cloud & Infrastructure:</div>
+                <div class="t-dim">  • AWS (ECS, ECR, S3, IAM, CloudWatch) | Azure Cloud Architecture</div>
+                <div class="t-dim">  • Kubernetes, Docker Containerization, Terraform IaC, Ansible</div>
+                <div class="t-yellow">🛡️ DevSecOps & Security:</div>
+                <div class="t-dim">  • GitHub Actions CI/CD, Trivy Vulnerability Audits, SonarQube, JWT Auth</div>
+                <div class="t-yellow">🧠 AI & Machine Learning:</div>
+                <div class="t-dim">  • PyTorch, Scikit-learn, DBSCAN Anomaly Detection, MLOps Pipelines</div>
+            `;
+            break;
+
+        case 'certs':
+            outputHtml = `
+                <div class="t-pink">📜 Verified Accreditations & Diplomas:</div>
+                <div>  • <span class="t-cyan">ELLA GenAI Security & Red Teaming</span> (Score: 10/10)</div>
+                <div>  • <span class="t-cyan">ELLA Data Engineering & MLOps</span> (Score: 9.5/10)</div>
+                <div>  • <span class="t-cyan">AWS Introduction to Containers</span> (Completion Cert)</div>
+                <div>  • <span class="t-cyan">Cisco CCNA Switching, Routing & Wireless</span> (Verified)</div>
+                <div>  • <span class="t-cyan">NVIDIA Fundamentals of Deep Learning</span> (Competency)</div>
+                <div>  • <span class="t-cyan">NVIDIA AI for Anomaly Detection</span> (Competency)</div>
+                <div>  • <span class="t-cyan">SAP Cloud ERP</span> (Record of Achievement)</div>
+                <div>  • <span class="t-cyan">DELF B2 Diploma</span> (République Française)</div>
+            `;
+            break;
+
+        case 'aws-status':
+        case 'aws':
+            outputHtml = `
+                <div class="t-green">✔ AWS Cloud Infrastructure: ACTIVE</div>
+                <div class="t-dim">[US-EAST-1] Multi-AZ EKS Cluster ..... <span class="t-green">100% HEALTHY</span></div>
+                <div class="t-dim">[EU-WEST-1] Terraform Managed VPC ... <span class="t-green">100% HEALTHY</span></div>
+                <div class="t-dim">[CONTAINERS] Docker Image ECR Registry <span class="t-cyan">0 VULNERABILITIES</span></div>
+                <div class="t-yellow">Status: All Cloud Nodes Operational (Uptime: 99.99%)</div>
+            `;
+            break;
+
+        case 'ai-pipeline':
+        case 'ai':
+            outputHtml = `
+                <div class="t-purple">🤖 Executing AI Anomaly Detection Pipeline...</div>
+                <div class="t-dim">[Step 1/3] Loading PyTorch Tensor Dataset... <span class="t-green">DONE</span></div>
+                <div class="t-dim">[Step 2/3] Computing DBSCAN Feature Embeddings... <span class="t-green">DONE</span></div>
+                <div class="t-dim">[Step 3/3] Evaluating Security Threats... <span class="t-green">ACCURACY: 98.7%</span></div>
+                <div class="t-cyan">Result: Model Retrained & Deployed to MLOps Registry.</div>
+            `;
+            break;
+
+        case 'cat bio.txt':
+        case 'bio':
+            outputHtml = `
+                <div class="t-pink">👤 Farah Ben Chikha</div>
+                <div class="t-dim">Cloud Computing Engineer Student @ ESPRIT (Tunisia)</div>
+                <div class="t-dim">Double Degree Program @ Beijing Polytechnic University (China 🇹🇳🇨🇳)</div>
+                <div class="t-yellow">Specialties: Cloud Architecture, DevSecOps Security, AI & MLOps</div>
+                <div class="t-cyan">Contact: farah.benchikha@esprit.tn</div>
+            `;
+            break;
+
+        default:
+            outputHtml = `<div class="t-pink">Command not found: '${escapeHtml(cmd)}'. Type <span class="t-cyan">'help'</span> for list of commands.</div>`;
+            break;
+    }
+
+    const resLine = document.createElement('div');
+    resLine.className = 'terminal-output-line';
+    resLine.innerHTML = outputHtml;
+    history.appendChild(resLine);
+
+    // Auto scroll terminal to bottom
+    const termBody = document.getElementById('terminalBody');
+    if (termBody) termBody.scrollTop = termBody.scrollHeight;
+
+    playCyberSound('type');
+}
+
+function escapeHtml(text) {
+    return text.replace(/[&<>"']/g, function(m) {
+        return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[m];
+    });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const termInput = document.getElementById('terminalInput');
+    if (termInput) {
+        termInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                processTerminalInput(termInput.value);
+            }
+        });
+    }
+
+    // ==================== PROJECT CATEGORY FILTERS ====================
+    const filterBtns = document.querySelectorAll('.project-filter-btn');
+    const projectCards = document.querySelectorAll('.project-card[data-category]');
+
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            filterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const filter = btn.getAttribute('data-filter');
+
+            projectCards.forEach(card => {
+                const categories = card.getAttribute('data-category').split(' ');
+                if (filter === 'all' || categories.includes(filter)) {
+                    card.style.display = 'block';
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0) scale(1)';
+                    }, 50);
+                } else {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(20px) scale(0.95)';
+                    setTimeout(() => {
+                        card.style.display = 'none';
+                    }, 300);
+                }
+            });
+            playCyberSound('click');
+        });
+    });
+
+    // ==================== SOUND FX SYNTHESIZER ====================
+    let soundEnabled = false;
+    let audioCtx = null;
+
+    const soundBtn = document.getElementById('soundToggleBtn');
+    if (soundBtn) {
+        soundBtn.addEventListener('click', () => {
+            soundEnabled = !soundEnabled;
+            if (soundEnabled && !audioCtx) {
+                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            }
+            if (soundEnabled) {
+                soundBtn.classList.add('active');
+                soundBtn.innerHTML = '<i class="fas fa-volume-up"></i> <span>FX ON</span>';
+                playCyberSound('click');
+            } else {
+                soundBtn.classList.remove('active');
+                soundBtn.innerHTML = '<i class="fas fa-volume-mute"></i> <span>FX OFF</span>';
+            }
+        });
+    }
+
+    window.playCyberSound = function(type) {
+        if (!soundEnabled || !audioCtx) return;
+        try {
+            if (audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+
+            if (type === 'click') {
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(800, audioCtx.currentTime);
+                osc.frequency.exponentialRampToValueAtTime(400, audioCtx.currentTime + 0.05);
+                gain.gain.setValueAtTime(0.15, audioCtx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.05);
+                osc.start();
+                osc.stop(audioCtx.currentTime + 0.05);
+            } else if (type === 'type') {
+                osc.type = 'triangle';
+                osc.frequency.setValueAtTime(1200, audioCtx.currentTime);
+                osc.frequency.exponentialRampToValueAtTime(600, audioCtx.currentTime + 0.04);
+                gain.gain.setValueAtTime(0.08, audioCtx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.04);
+                osc.start();
+                osc.stop(audioCtx.currentTime + 0.04);
+            }
+        } catch (e) {
+            console.error('Audio error:', e);
+        }
+    };
+});

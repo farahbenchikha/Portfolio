@@ -2383,3 +2383,279 @@ section {
     border-color: white;
     background: rgba(255, 255, 255, 0.1);
 }
+
+/* ==================== GLOBAL DYNAMIC HIGH-TECH & CYBER STYLES ==================== */
+
+/* Top Scroll Progress Bar */
+.scroll-progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4px;
+    width: 0%;
+    background: linear-gradient(90deg, #ff2a85, #9c27b0, #00f2fe);
+    box-shadow: 0 0 12px rgba(255, 42, 133, 0.8);
+    z-index: 99999;
+    transition: width 0.1s ease-out;
+}
+
+/* Neural Canvas Background */
+.neural-bg-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: -1;
+    opacity: 0.6;
+}
+
+/* Sound Toggle Button */
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.sound-toggle-btn {
+    background: rgba(255, 42, 133, 0.1);
+    border: 1px solid rgba(255, 42, 133, 0.35);
+    color: #ff69b4;
+    padding: 0.4rem 0.85rem;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: all 0.3s ease;
+}
+
+.sound-toggle-btn:hover {
+    background: rgba(255, 42, 133, 0.25);
+    border-color: #ff2a85;
+    box-shadow: 0 0 15px rgba(255, 42, 133, 0.4);
+    transform: scale(1.05);
+}
+
+.sound-toggle-btn.active {
+    background: rgba(0, 242, 254, 0.15);
+    border-color: #00f2fe;
+    color: #00f2fe;
+    box-shadow: 0 0 15px rgba(0, 242, 254, 0.4);
+}
+
+/* ==================== INTERACTIVE CYBER SHELL TERMINAL ==================== */
+.cyber-terminal-wrapper {
+    margin-top: 3rem;
+    background: rgba(13, 15, 25, 0.95);
+    border: 1.5px solid rgba(255, 42, 133, 0.35);
+    border-radius: 16px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 30px rgba(255, 42, 133, 0.15);
+    overflow: hidden;
+    font-family: 'Fira Code', 'Cascadia Code', 'Consolas', monospace;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cyber-terminal-wrapper:hover {
+    border-color: rgba(0, 242, 254, 0.5);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), 0 0 35px rgba(0, 242, 254, 0.25);
+}
+
+.terminal-header {
+    background: rgba(22, 26, 42, 0.9);
+    padding: 0.75rem 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.terminal-dots {
+    display: flex;
+    gap: 8px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.dot-red { background: #ff5f56; }
+.dot-yellow { background: #ffbd2e; }
+.dot-green { background: #27c93f; }
+
+.terminal-title {
+    color: #a0aec0;
+    font-size: 0.82rem;
+    font-weight: 500;
+}
+
+.terminal-status {
+    font-size: 0.75rem;
+    color: #00f2fe;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-weight: 600;
+}
+
+.terminal-body {
+    padding: 1.25rem 1.5rem;
+    min-height: 220px;
+    max-height: 380px;
+    overflow-y: auto;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #e2e8f0;
+}
+
+.terminal-welcome {
+    margin-bottom: 1rem;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+    padding-bottom: 0.75rem;
+}
+
+.t-pink { color: #ff2a85; font-weight: 700; }
+.t-cyan { color: #00f2fe; font-weight: 600; }
+.t-green { color: #4ade80; }
+.t-yellow { color: #fbbf24; }
+.t-purple { color: #c084fc; }
+.t-dim { color: #94a3b8; }
+
+.terminal-output-line {
+    margin: 0.35rem 0;
+    word-break: break-word;
+}
+
+.terminal-input-line {
+    display: flex;
+    align-items: center;
+    margin-top: 0.75rem;
+}
+
+.terminal-prompt {
+    white-space: nowrap;
+    margin-right: 0.5rem;
+}
+
+.terminal-input {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 0.9rem;
+    width: 100%;
+    caret-color: #ff2a85;
+}
+
+.terminal-quick-pills {
+    padding: 0.8rem 1.2rem;
+    background: rgba(18, 22, 35, 0.9);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.term-pill {
+    background: rgba(255, 42, 133, 0.1);
+    border: 1px solid rgba(255, 42, 133, 0.3);
+    color: #ff77b2;
+    padding: 0.3rem 0.75rem;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 0.78rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.term-pill:hover {
+    background: #ff2a85;
+    color: #ffffff;
+    border-color: #ff2a85;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 42, 133, 0.35);
+}
+
+/* ==================== PROJECT FILTER PILLS & STATUS BADGES ==================== */
+.project-filter-tabs {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 2.5rem;
+}
+
+.project-filter-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: var(--light);
+    padding: 0.6rem 1.3rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.88rem;
+    transition: all 0.3s ease;
+}
+
+.project-filter-btn:hover {
+    background: rgba(255, 42, 133, 0.15);
+    border-color: rgba(255, 42, 133, 0.5);
+    color: #ff69b4;
+    transform: translateY(-2px);
+}
+
+.project-filter-btn.active {
+    background: linear-gradient(135deg, #ff2a85, #9c27b0);
+    border-color: transparent;
+    color: #ffffff;
+    box-shadow: 0 8px 20px rgba(255, 42, 133, 0.4);
+}
+
+.project-badge-status {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    z-index: 10;
+    background: rgba(13, 15, 25, 0.85);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(0, 242, 254, 0.4);
+    color: #00f2fe;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.3rem 0.7rem;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    letter-spacing: 0.5px;
+}
+
+/* Pulse animation utility */
+.pulse-green {
+    width: 7px;
+    height: 7px;
+    background: #00f2fe;
+    border-radius: 50%;
+    display: inline-block;
+    box-shadow: 0 0 0 rgba(0, 242, 254, 0.7);
+    animation: pulseGlow 2s infinite;
+}
+
+@keyframes pulseGlow {
+    0% { box-shadow: 0 0 0 0 rgba(0, 242, 254, 0.7); }
+    70% { box-shadow: 0 0 0 8px rgba(0, 242, 254, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(0, 242, 254, 0); }
+}
+
+/* 3D Card Hover Glow Effects (Inspired by NextGen / Aurora / LIVA) */
+.project-card, .service-card, .cert-card, .achievement-card {
+    transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.35s ease, border-color 0.35s ease !important;
+}
+
+.project-card:hover, .service-card:hover, .achievement-card:hover {
+    box-shadow: 0 20px 45px rgba(255, 42, 133, 0.22), 0 0 25px rgba(0, 242, 254, 0.15) !important;
+}

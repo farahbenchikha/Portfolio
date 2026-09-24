@@ -10,6 +10,12 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 </head>
 <body>
+    <!-- Top Scroll Progress Bar -->
+    <div id="scrollProgress" class="scroll-progress-bar"></div>
+
+    <!-- Neural & Cloud Node Canvas Background -->
+    <canvas id="neuralCanvas" class="neural-bg-canvas"></canvas>
+
     <!-- Loader -->
     <div class="loader" id="loader">
         <div class="loader-content">
@@ -32,8 +38,11 @@
                 <a href="#experience" class="nav-link">Experience</a>
                 <a href="#contact" class="nav-link">Contact</a>
             </div>
-            <div class="menu-btn">
-                <i class="fas fa-bars"></i>
+            <div class="nav-actions">
+                <button id="soundToggleBtn" class="sound-toggle-btn" title="Toggle Sound FX"><i class="fas fa-volume-mute"></i> <span>FX OFF</span></button>
+                <div class="menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
             </div>
         </div>
     </nav>
@@ -348,6 +357,39 @@
                     <div class="stat-card"><div class="stat-circle" data-value="75"><span class="stat-value">75%</span></div><p>Machine Learning</p></div>
                 </div>
             </div>
+
+            <!-- Interactive DevSecOps & Cloud Shell Terminal -->
+            <div class="cyber-terminal-wrapper" id="cloudTerminal">
+                <div class="terminal-header">
+                    <div class="terminal-dots">
+                        <span class="dot dot-red"></span>
+                        <span class="dot dot-yellow"></span>
+                        <span class="dot dot-green"></span>
+                    </div>
+                    <div class="terminal-title"><i class="fas fa-terminal"></i> farah@cloud-devsecops-node:~ (bash)</div>
+                    <div class="terminal-status"><span class="pulse-green"></span> SYSTEM ONLINE</div>
+                </div>
+                <div class="terminal-body" id="terminalBody">
+                    <div class="terminal-welcome">
+                        <span class="t-pink">★ Farah Benchikha Cloud OS Terminal v2.4 (x86_64-aws-linux)</span><br>
+                        <span class="t-dim">Type <span class="t-cyan">'help'</span> or click action pills below to query live skills, certs & cloud status.</span>
+                    </div>
+                    <div class="terminal-output-history" id="terminalHistory"></div>
+                    <div class="terminal-input-line">
+                        <span class="terminal-prompt"><span class="t-pink">farah@engineer</span>:<span class="t-cyan">~</span>$ </span>
+                        <input type="text" id="terminalInput" class="terminal-input" placeholder="try typing 'help', 'skills', 'certs', 'aws', 'ai'..." autocomplete="off" spellcheck="false">
+                    </div>
+                </div>
+                <div class="terminal-quick-pills">
+                    <button type="button" class="term-pill" onclick="runTerminalCmd('help')">$ help</button>
+                    <button type="button" class="term-pill" onclick="runTerminalCmd('skills')">$ skills</button>
+                    <button type="button" class="term-pill" onclick="runTerminalCmd('certs')">$ certs</button>
+                    <button type="button" class="term-pill" onclick="runTerminalCmd('aws-status')">$ aws status</button>
+                    <button type="button" class="term-pill" onclick="runTerminalCmd('ai-pipeline')">$ run ai-pipeline</button>
+                    <button type="button" class="term-pill" onclick="runTerminalCmd('cat bio.txt')">$ cat bio.txt</button>
+                    <button type="button" class="term-pill" onclick="runTerminalCmd('clear')">$ clear</button>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -358,9 +400,19 @@
                 <span class="section-tag">ENGINEERING PORTFOLIO</span>
                 <h2 class="section-title">Featured Systems, AI & Cloud Architectures</h2>
             </div>
+
+            <!-- Project Category Filter Pills -->
+            <div class="project-filter-tabs">
+                <button type="button" class="project-filter-btn active" data-filter="all">All Systems</button>
+                <button type="button" class="project-filter-btn" data-filter="cloud">Cloud & Azure ☁️</button>
+                <button type="button" class="project-filter-btn" data-filter="ai">AI & MLOps 🧠</button>
+                <button type="button" class="project-filter-btn" data-filter="fullstack">Full-Stack & Microservices 💻</button>
+            </div>
+
             <div class="projects-grid">
                 <!-- Project 1: Pour la Forme -->
-                <div class="project-card">
+                <div class="project-card" data-category="cloud fullstack">
+                    <div class="project-badge-status"><span class="pulse-green"></span> AZURE CLOUD 4-TIER</div>
                     <div class="project-carousel swiper project-swiper" data-swiper="pour-la-forme">
                         <div class="swiper-wrapper">
                             <div class="swiper-slide"><img src="assets/images/projects/marhaba%20gym.jpg" alt="Pour la Forme"></div>
@@ -383,7 +435,8 @@
                 </div>
 
                 <!-- Project 2: ML for Retail Decision -->
-                <div class="project-card">
+                <div class="project-card" data-category="ai">
+                    <div class="project-badge-status"><span class="pulse-green"></span> OPERATIONAL AIOps</div>
                     <div class="project-carousel swiper project-swiper" data-swiper="ml-retail">
                         <div class="swiper-wrapper">
                             <div class="swiper-slide"><video controls><source src="assets/videos/ML%20for%20Retail%20demo.mp4" type="video/mp4"></video></div>
@@ -401,7 +454,8 @@
                 </div>
 
                 <!-- Project 3: Wokmaster -->
-                <div class="project-card">
+                <div class="project-card" data-category="fullstack">
+                    <div class="project-badge-status"><span class="pulse-green"></span> MICROSERVICES & JWT</div>
                     <div class="project-carousel swiper project-swiper" data-swiper="wokmaster">
                         <div class="swiper-wrapper">
                             <div class="swiper-slide"><img src="assets/images/projects/WokmasterClientInterface.png" alt="Client Interface"></div>
@@ -424,7 +478,8 @@
                 </div>
 
                 <!-- Project 4: Eventify -->
-                <div class="project-card">
+                <div class="project-card" data-category="fullstack">
+                    <div class="project-badge-status"><span class="pulse-green"></span> AWARD WINNER 🏆</div>
                     <div class="project-carousel swiper project-swiper" data-swiper="eventify">
                         <div class="swiper-wrapper">
                             <div class="swiper-slide">
@@ -449,7 +504,7 @@
                 </div>
 
                 <!-- Project 5: Photo Gallery -->
-                <div class="project-card">
+                <div class="project-card" data-category="fullstack">
                     <div class="project-placeholder"><i class="fas fa-images"></i><p>Backend / API Project</p></div>
                     <div class="project-content">
                         <h3>Photo Gallery</h3>
@@ -460,7 +515,7 @@
                 </div>
 
                 <!-- Project 6: Hotel Management -->
-                <div class="project-card">
+                <div class="project-card" data-category="fullstack">
                     <div class="project-placeholder"><i class="fas fa-terminal"></i><p>Console Application</p></div>
                     <div class="project-content">
                         <h3>Hotel Management</h3>
