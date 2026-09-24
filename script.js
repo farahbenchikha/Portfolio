@@ -418,7 +418,7 @@ if (contactForm) {
 
             if (zoneName === 'left') {
                 targetState = 'look_left';
-                setMessage('Anyone here on the left?');
+                setMessage('Scanning Cloud Infra & AWS Clusters!');
                 target.headAngle = -0.12;
                 target.headOffsetX = -12;
                 target.eyeOffsetX = -8;
@@ -437,7 +437,7 @@ if (contactForm) {
 
             } else if (zoneName === 'right') {
                 targetState = 'look_right';
-                setMessage('Anyone here on the right?');
+                setMessage('Deploying DevSecOps Shields & AI Pipelines!');
                 target.headAngle = 0.12;
                 target.headOffsetX = 12;
                 target.eyeOffsetX = 8;
@@ -462,7 +462,7 @@ if (contactForm) {
         function resetToWorking() {
             targetState = 'working';
             currentState = 'working';
-            setMessage('Move cursor to call me !');
+            setMessage('Move cursor to interact with me !');
             target.headAngle = 0;
             target.headOffsetX = 0;
             target.eyeOffsetX = 0;
@@ -479,7 +479,7 @@ if (contactForm) {
 
             currentState = 'greeting_1';
             targetState = 'greeting_1';
-            setMessage("Hey, it's you!");
+            setMessage("Hey! I'm Farah! Welcome to my tech universe!");
             target.headAngle = 0;
             target.headOffsetX = 0;
             target.eyeOffsetX = 0;
@@ -492,7 +492,7 @@ if (contactForm) {
             greetingTimer = setTimeout(() => {
                 currentState = 'greeting_2';
                 targetState = 'greeting_2';
-                setMessage("Hiiii!");
+                setMessage("I design secure Cloud, DevSecOps & AI architectures!");
                 target.headAngle = 0.05;
                 target.leftArmAngle = 0;
                 target.rightArmAngle = 1;
@@ -501,7 +501,7 @@ if (contactForm) {
                 greetingTimer = setTimeout(() => {
                     currentState = 'greeting_3';
                     targetState = 'greeting_3';
-                    setMessage("Check out the portfolio");
+                    setMessage("Check out my featured projects below!");
                     target.headAngle = 0;
                     target.eyeOffsetY = 4;
                     target.rightArmAngle = 2;
@@ -509,12 +509,33 @@ if (contactForm) {
 
                     greetingTimer = setTimeout(() => {
                         resetToWorking();
-                    }, 3000);
+                    }, 3200);
 
-                }, 1800);
+                }, 2000);
 
-            }, 1500);
+            }, 1600);
         }
+
+        function initRoleRotator() {
+            const roleEl = document.getElementById('dynamicRole');
+            if (!roleEl) return;
+            const roles = [
+                'Cloud & DevOps Engineer',
+                'DevSecOps Specialist',
+                'AIOps & ML Systems',
+                'Kubernetes & Infra Expert'
+            ];
+            let roleIdx = 0;
+            setInterval(() => {
+                roleEl.style.opacity = '0';
+                setTimeout(() => {
+                    roleIdx = (roleIdx + 1) % roles.length;
+                    roleEl.textContent = roles[roleIdx];
+                    roleEl.style.opacity = '1';
+                }, 300);
+            }, 3200);
+        }
+        initRoleRotator();
 
         if (interactionZones) {
             const zones = interactionZones.querySelectorAll('.zone');
@@ -567,6 +588,7 @@ if (contactForm) {
             const charX = centerX + current.headOffsetX * 0.5;
             const charY = 240;
 
+            drawHolograms(ctx, canvas.width, canvas.height, time);
             drawDesk(ctx, canvas.width, canvas.height);
             drawTorso(ctx, charX, charY);
             drawArms(ctx, charX, charY, current, time);
@@ -575,6 +597,102 @@ if (contactForm) {
             drawHeadset(ctx, charX, charY - 60, current);
 
             requestAnimationFrame(render);
+        }
+
+        function drawHolograms(ctx, w, h, time) {
+            ctx.save();
+            
+            // Hologram 1: Cloud Infra (Top Left)
+            const cloudX = 90 + Math.sin(time * 1.5) * 8;
+            const cloudY = 110 + Math.cos(time * 1.2) * 10;
+            
+            ctx.fillStyle = 'rgba(56, 189, 248, 0.15)';
+            ctx.beginPath();
+            ctx.arc(cloudX, cloudY, 30, 0, Math.PI * 2);
+            ctx.fill();
+            
+            ctx.strokeStyle = 'rgba(56, 189, 248, 0.6)';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.arc(cloudX, cloudY, 26, 0, Math.PI * 2);
+            ctx.stroke();
+
+            ctx.fillStyle = '#38BDF8';
+            ctx.beginPath();
+            ctx.arc(cloudX - 6, cloudY + 2, 7, 0, Math.PI * 2);
+            ctx.arc(cloudX + 6, cloudY + 2, 6, 0, Math.PI * 2);
+            ctx.arc(cloudX, cloudY - 4, 9, 0, Math.PI * 2);
+            ctx.fill();
+
+            ctx.font = 'bold 10px Inter, sans-serif';
+            ctx.fillStyle = '#0284C7';
+            ctx.textAlign = 'center';
+            ctx.fillText('AWS CLOUD', cloudX, cloudY + 38);
+
+            // Hologram 2: DevSecOps Shield (Top Right)
+            const secX = w - 90 + Math.cos(time * 1.6) * 8;
+            const secY = 100 + Math.sin(time * 1.4) * 10;
+            
+            ctx.fillStyle = 'rgba(244, 63, 94, 0.15)';
+            ctx.beginPath();
+            ctx.arc(secX, secY, 30, 0, Math.PI * 2);
+            ctx.fill();
+
+            ctx.strokeStyle = 'rgba(244, 63, 94, 0.6)';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.arc(secX, secY, 26, 0, Math.PI * 2);
+            ctx.stroke();
+
+            ctx.fillStyle = '#F43F5E';
+            ctx.beginPath();
+            ctx.moveTo(secX, secY - 10);
+            ctx.lineTo(secX + 10, secY - 5);
+            ctx.lineTo(secX + 8, secY + 5);
+            ctx.quadraticCurveTo(secX, secY + 14, secX, secY + 14);
+            ctx.quadraticCurveTo(secX, secY + 14, secX - 8, secY + 5);
+            ctx.lineTo(secX - 10, secY - 5);
+            ctx.closePath();
+            ctx.fill();
+
+            ctx.fillStyle = '#E11D48';
+            ctx.fillText('DEVSECOPS', secX, secY + 38);
+
+            // Hologram 3: AIOps (Middle Right)
+            const aiX = w - 70 + Math.sin(time * 2.1) * 6;
+            const aiY = 250 + Math.cos(time * 1.8) * 8;
+
+            ctx.fillStyle = 'rgba(168, 85, 247, 0.15)';
+            ctx.beginPath();
+            ctx.arc(aiX, aiY, 26, 0, Math.PI * 2);
+            ctx.fill();
+
+            ctx.strokeStyle = 'rgba(168, 85, 247, 0.6)';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.arc(aiX, aiY, 22, 0, Math.PI * 2);
+            ctx.stroke();
+
+            ctx.fillStyle = '#A855F7';
+            ctx.beginPath();
+            ctx.arc(aiX - 7, aiY - 5, 3.5, 0, Math.PI * 2);
+            ctx.arc(aiX + 7, aiY - 5, 3.5, 0, Math.PI * 2);
+            ctx.arc(aiX, aiY + 7, 3.5, 0, Math.PI * 2);
+            ctx.fill();
+
+            ctx.strokeStyle = '#A855F7';
+            ctx.lineWidth = 1.5;
+            ctx.beginPath();
+            ctx.moveTo(aiX - 7, aiY - 5);
+            ctx.lineTo(aiX + 7, aiY - 5);
+            ctx.lineTo(aiX, aiY + 7);
+            ctx.closePath();
+            ctx.stroke();
+
+            ctx.fillStyle = '#9333EA';
+            ctx.fillText('AIOps', aiX, aiY + 34);
+
+            ctx.restore();
         }
 
         function drawDesk(ctx, w, h) {
