@@ -1102,3 +1102,28 @@ if (contactForm) {
     
     console.log('Curseur personnalisé activé !');
 })();
+
+// ==================== CERTIFICATE LIGHTBOX MODAL ====================
+function openCertModal(imageSrc, captionText) {
+    const modal = document.getElementById('certModal');
+    const modalImg = document.getElementById('certModalImage');
+    const modalCap = document.getElementById('certModalCaption');
+    if (modal && modalImg) {
+        modalImg.src = imageSrc;
+        if (modalCap) modalCap.textContent = captionText || '';
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+function closeCertModal() {
+    const modal = document.getElementById('certModal');
+    if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+}
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeCertModal();
+});

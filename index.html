@@ -657,28 +657,81 @@
                 <!-- ELLA: Sécurité IA & Red Teaming GenAI -->
                 <div class="cert-card cert-featured">
                     <div class="cert-badge cert-badge-score">Score: 10/10</div>
-                    <i class="fas fa-user-shield"></i>
-                    <h3>Sécurité IA & Red Teaming GenAI</h3>
-                    <p>ELLA (ESPRIT Learn Lab Arena) • Honoris United • 2026</p>
-                    <span class="cert-desc">30h program: AI vulnerability auditing, GenAI Red Teaming, prompt injection defense, and AI safety testing.</span>
+                    <div class="cert-image-preview" onclick="openCertModal('assets/images/certs/ella-genai-security.png', 'Sécurité IA & Red Teaming GenAI - ELLA 10/10')">
+                        <img src="assets/images/certs/ella-genai-security.png" alt="Sécurité IA & Red Teaming GenAI Diploma">
+                        <div class="cert-image-overlay">
+                            <i class="fas fa-search-plus"></i> View Diploma
+                        </div>
+                    </div>
+                    <div class="cert-card-body">
+                        <h3>Sécurité IA & Red Teaming GenAI</h3>
+                        <p>ELLA (ESPRIT Learn Lab Arena) • Honoris United • 2026</p>
+                        <span class="cert-desc">30h program: AI vulnerability auditing, GenAI Red Teaming, prompt injection defense, and AI safety testing.</span>
+                    </div>
                 </div>
 
                 <!-- ELLA: Data Engineering & MLOps -->
                 <div class="cert-card cert-featured">
                     <div class="cert-badge cert-badge-score">Score: 9.5/10</div>
-                    <i class="fas fa-cogs"></i>
-                    <h3>Data Engineering & MLOps</h3>
-                    <p>ELLA (ESPRIT Learn Lab Arena) • Honoris United • 2026</p>
-                    <span class="cert-desc">30h program: Designing scalable data pipelines, automated model retraining, MLOps deployment & tracking.</span>
+                    <div class="cert-image-preview" onclick="openCertModal('assets/images/certs/ella-mlops.png', 'Data Engineering & MLOps - ELLA 9.5/10')">
+                        <img src="assets/images/certs/ella-mlops.png" alt="Data Engineering & MLOps Diploma">
+                        <div class="cert-image-overlay">
+                            <i class="fas fa-search-plus"></i> View Diploma
+                        </div>
+                    </div>
+                    <div class="cert-card-body">
+                        <h3>Data Engineering & MLOps</h3>
+                        <p>ELLA (ESPRIT Learn Lab Arena) • Honoris United • 2026</p>
+                        <span class="cert-desc">30h program: Designing scalable data pipelines, automated model retraining, MLOps deployment & tracking.</span>
+                    </div>
+                </div>
+
+                <!-- ELLA: IA Agentique pour Workflows d'Entreprise -->
+                <div class="cert-card cert-featured">
+                    <div class="cert-badge cert-badge-score">Score: 8.9/10</div>
+                    <div class="cert-image-preview" onclick="openCertModal('assets/images/certs/ella-ia-agentique.png', 'IA Agentique pour les Workflows d\'Entreprise - ELLA 8.9/10')">
+                        <img src="assets/images/certs/ella-ia-agentique.png" alt="IA Agentique Diploma">
+                        <div class="cert-image-overlay">
+                            <i class="fas fa-search-plus"></i> View Diploma
+                        </div>
+                    </div>
+                    <div class="cert-card-body">
+                        <h3>IA Agentique pour Workflows d'Entreprise</h3>
+                        <p>ELLA (ESPRIT Learn Lab Arena) • Honoris United • 2026</p>
+                        <span class="cert-desc">20h program: Multi-agent systems, RAG architecture, LLM context & memory, evaluation & observability.</span>
+                    </div>
                 </div>
 
                 <!-- AWS Introduction to Containers -->
                 <div class="cert-card cert-featured">
                     <div class="cert-badge cert-badge-verified"><i class="fas fa-check-circle"></i> Verified</div>
-                    <i class="fab fa-aws"></i>
-                    <h3>Introduction to Containers</h3>
-                    <p>AWS Training & Certification • June 2026</p>
-                    <span class="cert-desc">Docker container fundamentals, Amazon ECS, ECR, containerized application orchestration & deployment.</span>
+                    <div class="cert-image-preview" onclick="openCertModal('assets/images/certs/aws-containers.png', 'AWS Introduction to Containers - Completion Certificate')">
+                        <img src="assets/images/certs/aws-containers.png" alt="AWS Introduction to Containers Certificate">
+                        <div class="cert-image-overlay">
+                            <i class="fas fa-search-plus"></i> View Certificate
+                        </div>
+                    </div>
+                    <div class="cert-card-body">
+                        <h3>Introduction to Containers</h3>
+                        <p>AWS Training & Certification • June 2026</p>
+                        <span class="cert-desc">Docker container fundamentals, Amazon ECS, ECR, containerized application orchestration & deployment.</span>
+                    </div>
+                </div>
+
+                <!-- DELF B2 French Language Diploma -->
+                <div class="cert-card cert-featured">
+                    <div class="cert-badge cert-badge-verified">Official B2</div>
+                    <div class="cert-image-preview" onclick="openCertModal('assets/images/certs/delf-b2.png', 'DELF B2 - République Française Ministère de l\'Éducation Nationale')">
+                        <img src="assets/images/certs/delf-b2.png" alt="DELF B2 Diploma">
+                        <div class="cert-image-overlay">
+                            <i class="fas fa-search-plus"></i> View Diploma
+                        </div>
+                    </div>
+                    <div class="cert-card-body">
+                        <h3>DELF B2 - French Language Diploma</h3>
+                        <p>Ministère de l'Éducation Nationale (France)</p>
+                        <span class="cert-desc">Official French language fluency diploma awarded by Centre International d'Études Pédagogiques.</span>
+                    </div>
                 </div>
 
                 <!-- AWS Academy Cloud Operations (In Progress) -->
@@ -798,6 +851,15 @@
             <div class="footer-bottom"><p>&copy; 2026 Farah Benchikha. All rights reserved.</p></div>
         </div>
     </footer>
+
+    <!-- Certificate Image Lightbox Modal -->
+    <div id="certModal" class="cert-lightbox-modal">
+        <span class="cert-modal-close" onclick="closeCertModal()">&times;</span>
+        <div class="cert-modal-content">
+            <img id="certModalImage" src="" alt="Certificate View">
+            <div id="certModalCaption" class="cert-modal-caption"></div>
+        </div>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="script.js"></script>
