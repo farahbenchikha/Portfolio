@@ -1,31 +1,31 @@
-/* style.css - Version Féminine & Interactive */
+/* style.css - Version Féminine High-Tech Unified Dark Theme */
 
 :root {
-    /* Nouvelle palette de couleurs féminine et élégante */
-    --primary: #e91e63;      /* Rose vif */
-    --primary-light: #f06292;
+    /* Palette de couleurs unifiée high-tech & élégante */
+    --primary: #ff2a85;      /* Cyber Rose Magenta */
+    --primary-light: #ff69b4;
     --primary-dark: #c2185b;
-    --secondary: #9c27b0;    /* Violet */
-    --secondary-light: #ce93d8;
-    --accent: #ff6e7f;       /* Rose pêche */
-    --accent-gradient: linear-gradient(135deg, #e91e63, #9c27b0, #ff6e7f);
+    --secondary: #00f2fe;    /* Cyber Cyan */
+    --secondary-light: #70f3ff;
+    --accent: #a855f7;       /* Holographic Purple */
+    --accent-gradient: linear-gradient(135deg, #ff2a85, #a855f7, #00f2fe);
     
-    --dark: #1a1a2e;
-    --darker: #0f0f1a;
-    --light: #f8f9fa;
-    --gray: #a0a0b0;
-    --gray-dark: #6c6c7a;
+    --dark: #0f121d;         /* Uniform Deep Space Dark */
+    --darker: #0b0d17;       /* Void Dark */
+    --light: #f8fafc;
+    --gray: #94a3b8;
+    --gray-dark: #475569;
     
-    --card-bg: rgba(30, 30, 50, 0.8);
-    --card-bg-solid: #1e1e32;
-    --border: rgba(233, 30, 99, 0.2);
-    --border-glow: rgba(233, 30, 99, 0.5);
+    --card-bg: rgba(18, 22, 36, 0.8);
+    --card-bg-solid: #121624;
+    --border: rgba(255, 42, 133, 0.25);
+    --border-glow: rgba(255, 42, 133, 0.5);
     
-    --glass-effect: rgba(255, 255, 255, 0.05);
-    --glass-border: rgba(233, 30, 99, 0.2);
+    --glass-effect: rgba(255, 255, 255, 0.04);
+    --glass-border: rgba(255, 42, 133, 0.25);
     
-    --success: #00bcd4;
-    --warning: #ff9800;
+    --success: #00f2fe;
+    --warning: #fbbf24;
     
     /* Animation */
     --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
@@ -243,14 +243,13 @@ body {
 .hero.interactive-hero {
     min-height: 100vh;
     position: relative;
-    background: radial-gradient(circle at 50% 45%, #FFFFFF 0%, #FDF2F4 30%, #F4D7DE 60%, #8C2D42 90%, #4A1525 100%);
-    color: #172033;
+    background: radial-gradient(circle at 50% 40%, rgba(255, 42, 133, 0.15) 0%, rgba(15, 18, 29, 0.95) 60%, var(--darker) 100%);
+    color: var(--light);
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
     padding: 6rem 2rem 3rem;
-    transition: background 0.5s ease;
 }
 
 .hero.interactive-hero::before {
@@ -264,10 +263,10 @@ body {
     transform: translate(-50%, -50%);
     width: 600px;
     height: 600px;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.5) 45%, transparent 70%);
+    background: radial-gradient(circle, rgba(255, 42, 133, 0.25) 0%, rgba(168, 85, 247, 0.12) 45%, transparent 70%);
     pointer-events: none;
     z-index: 1;
-    filter: blur(20px);
+    filter: blur(40px);
 }
 
 /* 3 Horizontal Interaction Zones */
@@ -319,32 +318,33 @@ body {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    background: rgba(255, 255, 255, 0.85);
-    border: 1px solid rgba(140, 45, 66, 0.25);
+    background: rgba(18, 22, 36, 0.85);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 42, 133, 0.35);
     padding: 0.4rem 1rem;
     border-radius: 50px;
     font-size: 0.85rem;
     font-weight: 600;
-    color: #8C2D42;
-    box-shadow: 0 4px 15px rgba(74, 21, 37, 0.08);
+    color: #ff69b4;
+    box-shadow: 0 4px 15px rgba(255, 42, 133, 0.15);
     width: fit-content;
 }
 
 .hero-badge-pill .badge-dot {
     width: 8px;
     height: 8px;
-    background: #E91E63;
+    background: #ff2a85;
     border-radius: 50%;
-    box-shadow: 0 0 8px #E91E63;
+    box-shadow: 0 0 8px #ff2a85;
 }
 
 .intro-note-card {
-    background: rgba(255, 255, 255, 0.92);
+    background: rgba(18, 22, 36, 0.88);
     backdrop-filter: blur(16px);
-    border: 2px solid rgba(233, 30, 99, 0.25);
+    border: 1.5px solid rgba(255, 42, 133, 0.3);
     padding: 1.8rem;
     border-radius: 20px;
-    box-shadow: 0 15px 35px rgba(140, 45, 66, 0.15), 0 0 25px rgba(255, 46, 147, 0.12);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 0 0 25px rgba(255, 42, 133, 0.15);
     display: flex;
     flex-direction: column;
     gap: 0.6rem;
@@ -353,7 +353,8 @@ body {
 
 .intro-note-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 20px 40px rgba(140, 45, 66, 0.2), 0 0 35px rgba(255, 46, 147, 0.22);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 35px rgba(255, 42, 133, 0.25);
+    border-color: rgba(0, 242, 254, 0.5);
 }
 
 .availability-status {
@@ -362,9 +363,9 @@ body {
     gap: 0.5rem;
     font-size: 0.78rem;
     font-weight: 700;
-    color: #10B981;
-    background: rgba(16, 185, 129, 0.1);
-    border: 1px solid rgba(16, 185, 129, 0.3);
+    color: #00f2fe;
+    background: rgba(0, 242, 254, 0.1);
+    border: 1px solid rgba(0, 242, 254, 0.3);
     padding: 0.3rem 0.8rem;
     border-radius: 50px;
     width: fit-content;
@@ -374,9 +375,9 @@ body {
 .pulse-green {
     width: 8px;
     height: 8px;
-    background: #10B981;
+    background: #00f2fe;
     border-radius: 50%;
-    box-shadow: 0 0 8px #10B981;
+    box-shadow: 0 0 8px #00f2fe;
     animation: pulseDot 1.6s infinite ease-in-out;
 }
 
@@ -388,7 +389,7 @@ body {
 .hero-author-name {
     font-size: 1.9rem;
     font-weight: 800;
-    background: linear-gradient(135deg, #4A1525 0%, #8C2D42 50%, #E91E63 100%);
+    background: linear-gradient(135deg, #ff2a85 0%, #a855f7 50%, #00f2fe 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -399,21 +400,16 @@ body {
 .hero-author-title {
     font-size: 1.05rem;
     font-weight: 700;
-    color: #8C2D42;
+    color: #f8fafc;
     min-height: 1.6em;
 }
 
 .dynamic-role {
     display: inline-block;
-    border-bottom: 2px solid #E91E63;
+    border-bottom: 2px solid #ff2a85;
+    color: #ff69b4;
     padding-bottom: 2px;
     transition: opacity 0.3s ease;
-}
-
-.hero-author-title {
-    font-size: 1.05rem;
-    font-weight: 600;
-    color: #8C2D42;
 }
 
 .cursor-instruction-box {
@@ -422,20 +418,21 @@ body {
     gap: 0.8rem;
     margin-top: 0.8rem;
     padding-top: 0.8rem;
-    border-top: 1px dashed rgba(140, 45, 66, 0.2);
+    border-top: 1px dashed rgba(255, 42, 133, 0.25);
 }
 
 .animated-cursor-indicator {
     position: relative;
     width: 32px;
     height: 32px;
-    background: #8C2D42;
+    background: #ff2a85;
     color: #FFFFFF;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 0.9rem;
+    box-shadow: 0 0 12px rgba(255, 42, 133, 0.6);
 }
 
 .cursor-ripple {
@@ -444,7 +441,7 @@ body {
     left: -4px;
     right: -4px;
     bottom: -4px;
-    border: 2px solid #8C2D42;
+    border: 2px solid #ff2a85;
     border-radius: 50%;
     animation: ripplePulse 1.8s infinite ease-out;
 }
@@ -457,7 +454,7 @@ body {
 .instruction-text {
     font-size: 0.88rem;
     font-weight: 600;
-    color: #4A1525;
+    color: #94a3b8;
     letter-spacing: 0.2px;
 }
 
@@ -468,46 +465,47 @@ body {
 }
 
 .hero-cta-buttons .btn-primary {
-    background: linear-gradient(135deg, #8C2D42, #4A1525);
+    background: linear-gradient(135deg, #ff2a85, #9c27b0);
     color: #FFFFFF;
     padding: 0.8rem 1.4rem;
     border-radius: 12px;
     text-decoration: none;
     font-weight: 600;
     font-size: 0.9rem;
-    box-shadow: 0 6px 20px rgba(74, 21, 37, 0.25);
+    box-shadow: 0 6px 20px rgba(255, 42, 133, 0.4);
     transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .hero-cta-buttons .btn-outline {
-    border: 2px solid #8C2D42;
-    color: #8C2D42;
+    border: 1.5px solid rgba(255, 42, 133, 0.5);
+    color: #ff69b4;
     padding: 0.8rem 1.4rem;
     border-radius: 12px;
     text-decoration: none;
     font-weight: 600;
     font-size: 0.9rem;
-    background: rgba(255, 255, 255, 0.7);
+    background: rgba(18, 22, 36, 0.8);
     backdrop-filter: blur(8px);
     transition: background 0.2s, color 0.2s;
 }
 
 .hero-cta-buttons .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(74, 21, 37, 0.35);
+    box-shadow: 0 10px 25px rgba(255, 42, 133, 0.6);
 }
 
 .hero-cta-buttons .btn-outline:hover {
-    background: #8C2D42;
+    background: #ff2a85;
     color: #FFFFFF;
+    border-color: #ff2a85;
 }
 
 .hero-stats-row {
     display: flex;
     justify-content: space-between;
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(18, 22, 36, 0.85);
     backdrop-filter: blur(8px);
-    border: 1px solid rgba(140, 45, 66, 0.15);
+    border: 1px solid rgba(255, 42, 133, 0.25);
     padding: 1rem 1.2rem;
     border-radius: 14px;
 }
@@ -521,13 +519,13 @@ body {
 .stat-number {
     font-size: 1.3rem;
     font-weight: 800;
-    color: #4A1525;
+    color: #ff2a85;
 }
 
 .stat-label {
     font-size: 0.75rem;
     font-weight: 600;
-    color: #8C2D42;
+    color: #94a3b8;
 }
 
 /* Center Area: Dominant Character & Laptop */
@@ -543,9 +541,9 @@ body {
     position: absolute;
     width: 440px;
     height: 440px;
-    background: radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.6) 45%, transparent 70%);
+    background: radial-gradient(circle, rgba(255, 42, 133, 0.2) 0%, rgba(0, 242, 254, 0.1) 45%, transparent 70%);
     border-radius: 50%;
-    filter: blur(25px);
+    filter: blur(35px);
     z-index: 1;
 }
 
@@ -564,7 +562,7 @@ body {
     max-width: 560px;
     height: auto;
     display: block;
-    filter: drop-shadow(0 15px 35px rgba(74, 21, 37, 0.2));
+    filter: drop-shadow(0 15px 35px rgba(0, 0, 0, 0.5));
 }
 
 /* Right Area: Contextual Messages */
@@ -577,12 +575,12 @@ body {
 
 .contextual-message-box {
     position: relative;
-    background: rgba(255, 255, 255, 0.94);
+    background: rgba(18, 22, 36, 0.92);
     backdrop-filter: blur(12px);
-    border: 2px solid rgba(140, 45, 66, 0.25);
+    border: 1.5px solid rgba(255, 42, 133, 0.4);
     padding: 1.2rem 1.6rem;
     border-radius: 18px;
-    box-shadow: 0 12px 30px rgba(74, 21, 37, 0.15);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 42, 133, 0.15);
     width: 100%;
     min-height: 80px;
     display: flex;
@@ -599,14 +597,14 @@ body {
     height: 0;
     border-top: 10px solid transparent;
     border-bottom: 10px solid transparent;
-    border-right: 12px solid rgba(255, 255, 255, 0.94);
+    border-right: 12px solid rgba(18, 22, 36, 0.92);
 }
 
 .contextual-text {
     font-family: 'Inter', sans-serif;
     font-size: 1.05rem;
     font-weight: 700;
-    color: #4A1525;
+    color: #f8fafc;
     line-height: 1.4;
     transition: opacity 0.25s ease;
 }
@@ -619,46 +617,32 @@ body {
 }
 
 .tech-pill {
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(18, 22, 36, 0.85);
     backdrop-filter: blur(8px);
-    border: 1px solid rgba(140, 45, 66, 0.2);
+    border: 1px solid rgba(255, 42, 133, 0.3);
     padding: 0.5rem 1rem;
     border-radius: 50px;
     font-size: 0.85rem;
     font-weight: 700;
-    color: #4A1525;
+    color: #f8fafc;
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    box-shadow: 0 4px 15px rgba(74, 21, 37, 0.08);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     transition: all 0.25s ease;
 }
 
 .tech-pill:hover {
     transform: translateY(-3px) scale(1.03);
-    box-shadow: 0 8px 20px rgba(233, 30, 99, 0.2);
+    box-shadow: 0 8px 20px rgba(255, 42, 133, 0.3);
 }
 
-.tech-pill.pill-cloud { border-color: rgba(56, 189, 248, 0.5); color: #0284C7; }
-.tech-pill.pill-k8s { border-color: rgba(99, 102, 241, 0.5); color: #4F46E5; }
-.tech-pill.pill-sec { border-color: rgba(244, 63, 94, 0.5); color: #E11D48; }
-.tech-pill.pill-ai { border-color: rgba(168, 85, 247, 0.5); color: #9333EA; }
-.tech-pill.pill-tf { border-color: rgba(14, 165, 233, 0.5); color: #0369A1; }
-.tech-pill.pill-docker { border-color: rgba(2, 132, 199, 0.5); color: #0284C7; }
-
-.tech-pill {
-    background: rgba(255, 255, 255, 0.85);
-    border: 1px solid rgba(140, 45, 66, 0.2);
-    padding: 0.5rem 0.9rem;
-    border-radius: 30px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    color: #8C2D42;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-    box-shadow: 0 4px 12px rgba(74, 21, 37, 0.06);
-}
+.tech-pill.pill-cloud { border-color: rgba(56, 189, 248, 0.5); color: #38bdf8; }
+.tech-pill.pill-k8s { border-color: rgba(99, 102, 241, 0.5); color: #818cf8; }
+.tech-pill.pill-sec { border-color: rgba(244, 63, 94, 0.5); color: #fb7185; }
+.tech-pill.pill-ai { border-color: rgba(168, 85, 247, 0.5); color: #c084fc; }
+.tech-pill.pill-tf { border-color: rgba(14, 165, 233, 0.5); color: #38bdf8; }
+.tech-pill.pill-docker { border-color: rgba(2, 132, 199, 0.5); color: #38bdf8; }
 
 /* Scroll indicator cue */
 .interactive-hero .scroll-indicator {
