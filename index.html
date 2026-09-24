@@ -26,6 +26,7 @@
                 <a href="#home" class="nav-link active">Home</a>
                 <a href="#about" class="nav-link">About</a>
                 <a href="#services" class="nav-link">Services</a>
+                <a href="#skills" class="nav-link">Skills</a>
                 <a href="#projects" class="nav-link">Projects</a>
                 <a href="#achievements" class="nav-link">Achievements</a>
                 <a href="#experience" class="nav-link">Experience</a>
@@ -133,34 +134,171 @@
         </div>
     </section>
 
-    <!-- Services Section -->
+    <!-- Engineering Services Section -->
     <section id="services" class="services">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">MY SERVICES</span>
-                <h2 class="section-title">I design and code beautiful things,<br>and I love what I do.</h2>
+                <span class="section-tag">ENGINEERING SERVICES</span>
+                <h2 class="section-title">Architecting & Deploying Resilient Tech Solutions</h2>
             </div>
             <div class="services-grid">
                 <div class="service-card">
                     <div class="service-icon">
-                        <i class="fas fa-cloud-upload-alt"></i>
+                        <i class="fab fa-aws"></i>
                     </div>
-                    <h3>Cloud & DevOps</h3>
-                    <p>Azure infrastructure, Kubernetes, Docker, Ansible, and CI/CD pipelines for scalable deployments.</p>
+                    <h3>Cloud Architecture & IaC</h3>
+                    <p>Designing multi-region cloud infrastructures on Azure & AWS using Infrastructure as Code (Terraform, Ansible). High availability, auto-scaling & failover.</p>
+                    <div class="service-tags">
+                        <span>Azure</span><span>AWS</span><span>Terraform</span><span>Ansible</span>
+                    </div>
                 </div>
+
                 <div class="service-card">
                     <div class="service-icon">
-                        <i class="fas fa-code"></i>
+                        <i class="fas fa-shield-alt"></i>
                     </div>
-                    <h3>Full-Stack Development</h3>
-                    <p>Spring Boot, Angular, REST APIs, and responsive frontend with modern frameworks.</p>
+                    <h3>DevSecOps & CI/CD Pipelines</h3>
+                    <p>Automating end-to-end deployment pipelines with automated security scans (Trivy, SonarQube), container orchestration (Kubernetes, Docker), and secret management.</p>
+                    <div class="service-tags">
+                        <span>Kubernetes</span><span>Docker</span><span>GitHub Actions</span><span>Security</span>
+                    </div>
                 </div>
+
                 <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-brain"></i>
                     </div>
-                    <h3>ML & Data Science</h3>
-                    <p>Predictive analytics, clustering, deep learning with PyTorch and Scikit-learn.</p>
+                    <h3>AIOps & ML Engineering</h3>
+                    <p>Integrating artificial intelligence into production pipelines: real-time anomaly detection, predictive analytics, DBSCAN clustering, and ML model monitoring.</p>
+                    <div class="service-tags">
+                        <span>PyTorch</span><span>Scikit-learn</span><span>Python</span><span>AIOps</span>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cubes"></i>
+                    </div>
+                    <h3>Full-Stack Microservices</h3>
+                    <p>Building secure 4-tier microservices architectures with Spring Boot, Angular, REST APIs, JWT authentication, and containerized deployments.</p>
+                    <div class="service-tags">
+                        <span>Spring Boot</span><span>Angular</span><span>REST APIs</span><span>MySQL</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Skill Matrix Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">TECHNICAL EXPERTISE</span>
+                <h2 class="section-title">Engineering Stack & Tooling</h2>
+            </div>
+            <div class="skills-grid">
+                <!-- Category 1: Cloud & DevOps -->
+                <div class="skill-category-card">
+                    <div class="category-header">
+                        <i class="fas fa-cloud"></i>
+                        <h3>Cloud & DevOps</h3>
+                    </div>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <div class="skill-info"><span>AWS & Azure Cloud</span><span class="skill-percent">90%</span></div>
+                            <div class="skill-bar"><div class="skill-progress" style="width: 90%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info"><span>Kubernetes & Docker</span><span class="skill-percent">88%</span></div>
+                            <div class="skill-bar"><div class="skill-progress" style="width: 88%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info"><span>Terraform & Ansible (IaC)</span><span class="skill-percent">85%</span></div>
+                            <div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info"><span>CI/CD Pipelines (GitHub Actions)</span><span class="skill-percent">88%</span></div>
+                            <div class="skill-bar"><div class="skill-progress" style="width: 88%"></div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category 2: DevSecOps & Security -->
+                <div class="skill-category-card">
+                    <div class="category-header">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>DevSecOps & Cybersecurity</h3>
+                    </div>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <div class="skill-info"><span>Network Security (NetAcad)</span><span class="skill-percent">85%</span></div>
+                            <div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info"><span>CCNA Cisco Networking</span><span class="skill-percent">90%</span></div>
+                            <div class="skill-bar"><div class="skill-progress" style="width: 90%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info"><span>Security Scanning & Vulnerability Analysis</span><span class="skill-percent">82%</span></div>
+                            <div class="skill-bar"><div class="skill-progress" style="width: 82%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info"><span>JWT Authentication & OAuth2</span><span class="skill-percent">88%</span></div>
+                            <div class="skill-bar"><div class="skill-progress" style="width: 88%"></div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category 3: AI & Machine Learning -->
+                <div class="skill-category-card">
+                    <div class="category-header">
+                        <i class="fas fa-brain"></i>
+                        <h3>AI & Deep Learning</h3>
+                    </div>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <div class="skill-info"><span>Deep Learning & Anomaly Detection (NVIDIA)</span><span class="skill-percent">85%</span></div>
+                            <div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info"><span>GCI World AI Program (U-Tokyo)</span><span class="skill-percent">92%</span></div>
+                            <div class="skill-bar"><div class="skill-progress" style="width: 92%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info"><span>Python, Scikit-learn, Pandas</span><span class="skill-percent">88%</span></div>
+                            <div class="skill-bar"><div class="skill-progress" style="width: 88%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info"><span>Explainable AI (XAI)</span><span class="skill-percent">80%</span></div>
+                            <div class="skill-bar"><div class="skill-progress" style="width: 80%"></div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category 4: Full-Stack & Engineering -->
+                <div class="skill-category-card">
+                    <div class="category-header">
+                        <i class="fas fa-code"></i>
+                        <h3>Software Engineering</h3>
+                    </div>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <div class="skill-info"><span>Spring Boot (Java)</span><span class="skill-percent">88%</span></div>
+                            <div class="skill-bar"><div class="skill-progress" style="width: 88%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info"><span>Angular & Modern Web</span><span class="skill-percent">85%</span></div>
+                            <div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info"><span>REST APIs & Microservices</span><span class="skill-percent">90%</span></div>
+                            <div class="skill-bar"><div class="skill-progress" style="width: 90%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info"><span>Power Apps & SharePoint</span><span class="skill-percent">82%</span></div>
+                            <div class="skill-bar"><div class="skill-progress" style="width: 82%"></div></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -217,8 +355,8 @@
     <section id="projects" class="projects">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">MY PROJECTS</span>
-                <h2 class="section-title">A Showcase of My Work</h2>
+                <span class="section-tag">ENGINEERING PORTFOLIO</span>
+                <h2 class="section-title">Featured Systems, AI & Cloud Architectures</h2>
             </div>
             <div class="projects-grid">
                 <!-- Project 1: Pour la Forme -->

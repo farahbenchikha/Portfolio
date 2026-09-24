@@ -339,7 +339,7 @@ if (contactForm) {
         });
     }, observerOptions);
     
-    const animateElements = document.querySelectorAll('.service-card, .project-card, .cert-card, .timeline-item, .achievement-card, .language-card');
+    const animateElements = document.querySelectorAll('.service-card, .project-card, .cert-card, .timeline-item, .achievement-card, .language-card, .skill-category-card');
     animateElements.forEach(el => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(30px)';
