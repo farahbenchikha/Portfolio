@@ -351,17 +351,554 @@ if (contactForm) {
     animateStyle.textContent = `.animate-in { opacity: 1 !important; transform: translateY(0) !important; }`;
     document.head.appendChild(animateStyle);
 
-    // ==================== PARALLAX EFFECT ====================
-    window.addEventListener('scroll', () => {
-        const heroImage = document.querySelector('.hero-image');
-        if (heroImage) {
-            const scrolled = window.scrollY;
-            heroImage.style.transform = `translateY(${scrolled * 0.1}px)`;
-        }
-    });
+    // ==================== INTERACTIVE HERO (SRI TECH STYLE) ====================
+    function initInteractiveHero() {
+        const canvas = document.getElementById('characterCanvas');
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        const contextualText = document.getElementById('contextualText');
+        const messageBox = document.getElementById('contextualMessageBox');
+        const interactionZones = document.getElementById('interactionZones');
+        const heroSection = document.querySelector('.interactive-hero');
 
-    
-    
+        if (!ctx) return;
+
+        let currentState = 'working';
+        let targetState = 'working';
+        let greetingTimer = null;
+        let lookTimeout = null;
+
+        const current = {
+            headAngle: 0,
+            headOffsetX: 0,
+            eyeOffsetX: 0,
+            eyeOffsetY: 1,
+            headsetPosition: 0,
+            rightArmAngle: 0,
+            leftArmAngle: 0,
+            mouthState: 'smile'
+        };
+
+        const target = {
+            headAngle: 0,
+            headOffsetX: 0,
+            eyeOffsetX: 0,
+            eyeOffsetY: 1,
+            headsetPosition: 0,
+            rightArmAngle: 0,
+            leftArmAngle: 0,
+            mouthState: 'smile'
+        };
+
+        function lerp(start, end, factor) {
+            return start + (end - start) * factor;
+        }
+
+        function setMessage(text) {
+            if (!contextualText) return;
+            if (contextualText.textContent === text) return;
+            
+            if (messageBox) {
+                messageBox.style.opacity = '0';
+                messageBox.style.transform = 'translateY(-5px)';
+                setTimeout(() => {
+                    contextualText.textContent = text;
+                    messageBox.style.opacity = '1';
+                    messageBox.style.transform = 'translateY(0)';
+                }, 150);
+            } else {
+                contextualText.textContent = text;
+            }
+        }
+
+        function triggerZone(zoneName) {
+            if (currentState.startsWith('greeting')) {
+                return;
+            }
+
+            if (zoneName === 'left') {
+                targetState = 'look_left';
+                setMessage('Anyone here on the left?');
+                target.headAngle = -0.12;
+                target.headOffsetX = -12;
+                target.eyeOffsetX = -8;
+                target.eyeOffsetY = 0;
+                target.headsetPosition = 0;
+                target.rightArmAngle = 0;
+                target.leftArmAngle = 0;
+                target.mouthState = 'smile';
+
+                clearTimeout(lookTimeout);
+                lookTimeout = setTimeout(() => {
+                    if (targetState === 'look_left') {
+                        resetToWorking();
+                    }
+                }, 2500);
+
+            } else if (zoneName === 'right') {
+                targetState = 'look_right';
+                setMessage('Anyone here on the right?');
+                target.headAngle = 0.12;
+                target.headOffsetX = 12;
+                target.eyeOffsetX = 8;
+                target.eyeOffsetY = 0;
+                target.headsetPosition = 0;
+                target.rightArmAngle = 0;
+                target.leftArmAngle = 0;
+                target.mouthState = 'smile';
+
+                clearTimeout(lookTimeout);
+                lookTimeout = setTimeout(() => {
+                    if (targetState === 'look_right') {
+                        resetToWorking();
+                    }
+                }, 2500);
+
+            } else if (zoneName === 'center') {
+                startGreetingSequence();
+            }
+        }
+
+        function resetToWorking() {
+            targetState = 'working';
+            currentState = 'working';
+            setMessage('Move cursor to call me !');
+            target.headAngle = 0;
+            target.headOffsetX = 0;
+            target.eyeOffsetX = 0;
+            target.eyeOffsetY = 1;
+            target.headsetPosition = 0;
+            target.rightArmAngle = 0;
+            target.leftArmAngle = 0;
+            target.mouthState = 'smile';
+        }
+
+        function startGreetingSequence() {
+            if (greetingTimer) clearTimeout(greetingTimer);
+            clearTimeout(lookTimeout);
+
+            currentState = 'greeting_1';
+            targetState = 'greeting_1';
+            setMessage("Hey, it's you!");
+            target.headAngle = 0;
+            target.headOffsetX = 0;
+            target.eyeOffsetX = 0;
+            target.eyeOffsetY = 0;
+            target.headsetPosition = 1;
+            target.leftArmAngle = 1;
+            target.rightArmAngle = 0;
+            target.mouthState = 'talk';
+
+            greetingTimer = setTimeout(() => {
+                currentState = 'greeting_2';
+                targetState = 'greeting_2';
+                setMessage("Hiiii!");
+                target.headAngle = 0.05;
+                target.leftArmAngle = 0;
+                target.rightArmAngle = 1;
+                target.mouthState = 'smile';
+
+                greetingTimer = setTimeout(() => {
+                    currentState = 'greeting_3';
+                    targetState = 'greeting_3';
+                    setMessage("Check out the portfolio");
+                    target.headAngle = 0;
+                    target.eyeOffsetY = 4;
+                    target.rightArmAngle = 2;
+                    target.mouthState = 'smile';
+
+                    greetingTimer = setTimeout(() => {
+                        resetToWorking();
+                    }, 3000);
+
+                }, 1800);
+
+            }, 1500);
+        }
+
+        if (interactionZones) {
+            const zones = interactionZones.querySelectorAll('.zone');
+            zones.forEach(zone => {
+                zone.addEventListener('mouseenter', () => {
+                    const z = zone.getAttribute('data-zone');
+                    if (z) triggerZone(z);
+                });
+            });
+
+            if (heroSection) {
+                heroSection.addEventListener('mousemove', (e) => {
+                    if (currentState.startsWith('greeting')) return;
+                    const rect = heroSection.getBoundingClientRect();
+                    const relativeX = (e.clientX - rect.left) / rect.width;
+
+                    if (relativeX < 0.33) {
+                        if (targetState !== 'look_left') triggerZone('left');
+                    } else if (relativeX > 0.66) {
+                        if (targetState !== 'look_right') triggerZone('right');
+                    } else {
+                        if (!currentState.startsWith('greeting') && targetState !== 'greeting_1') {
+                            triggerZone('center');
+                        }
+                    }
+                });
+            }
+        }
+
+        canvas.addEventListener('click', () => {
+            startGreetingSequence();
+        });
+
+        let startTime = performance.now();
+
+        function render(now) {
+            const time = (now - startTime) * 0.001;
+
+            current.headAngle = lerp(current.headAngle, target.headAngle, 0.08);
+            current.headOffsetX = lerp(current.headOffsetX, target.headOffsetX, 0.08);
+            current.eyeOffsetX = lerp(current.eyeOffsetX, target.eyeOffsetX, 0.1);
+            current.eyeOffsetY = lerp(current.eyeOffsetY, target.eyeOffsetY, 0.1);
+            current.headsetPosition = lerp(current.headsetPosition, target.headsetPosition, 0.06);
+            current.rightArmAngle = lerp(current.rightArmAngle, target.rightArmAngle, 0.08);
+            current.leftArmAngle = lerp(current.leftArmAngle, target.leftArmAngle, 0.08);
+
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            const centerX = canvas.width / 2;
+            const charX = centerX + current.headOffsetX * 0.5;
+            const charY = 240;
+
+            drawDesk(ctx, canvas.width, canvas.height);
+            drawTorso(ctx, charX, charY);
+            drawArms(ctx, charX, charY, current, time);
+            drawLaptop(ctx, centerX, 350, time);
+            drawHead(ctx, charX, charY - 80, current, time);
+            drawHeadset(ctx, charX, charY - 80, current);
+
+            requestAnimationFrame(render);
+        }
+
+        function drawDesk(ctx, w, h) {
+            ctx.save();
+            ctx.fillStyle = 'rgba(74, 21, 37, 0.08)';
+            ctx.beginPath();
+            ctx.ellipse(w / 2, 420, 220, 35, 0, 0, Math.PI * 2);
+            ctx.fill();
+
+            ctx.fillStyle = '#1E293B';
+            ctx.beginPath();
+            if (ctx.roundRect) {
+                ctx.roundRect(60, 410, w - 120, 20, 10);
+            } else {
+                ctx.rect(60, 410, w - 120, 20);
+            }
+            ctx.fill();
+
+            const deskGrad = ctx.createLinearGradient(0, 410, 0, 490);
+            deskGrad.addColorStop(0, '#334155');
+            deskGrad.addColorStop(1, '#0F172A');
+            ctx.fillStyle = deskGrad;
+            ctx.beginPath();
+            if (ctx.roundRect) {
+                ctx.roundRect(70, 420, w - 140, 80, [0, 0, 15, 15]);
+            } else {
+                ctx.rect(70, 420, w - 140, 80);
+            }
+            ctx.fill();
+            ctx.restore();
+        }
+
+        function drawTorso(ctx, x, y) {
+            ctx.save();
+            const sweaterGrad = ctx.createLinearGradient(x - 60, y, x + 60, y + 160);
+            sweaterGrad.addColorStop(0, '#8C2D42');
+            sweaterGrad.addColorStop(1, '#4A1525');
+            ctx.fillStyle = sweaterGrad;
+
+            ctx.beginPath();
+            ctx.moveTo(x - 70, y + 150);
+            ctx.quadraticCurveTo(x - 65, y + 30, x - 35, y + 20);
+            ctx.lineTo(x + 35, y + 20);
+            ctx.quadraticCurveTo(x + 65, y + 30, x + 70, y + 150);
+            ctx.closePath();
+            ctx.fill();
+
+            ctx.strokeStyle = '#FDF2F4';
+            ctx.lineWidth = 3;
+            ctx.beginPath();
+            ctx.arc(x, y + 22, 22, 0.1 * Math.PI, 0.9 * Math.PI);
+            ctx.stroke();
+
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.moveTo(x - 8, y + 40);
+            ctx.lineTo(x - 8, y + 70);
+            ctx.moveTo(x + 8, y + 40);
+            ctx.lineTo(x + 8, y + 70);
+            ctx.stroke();
+            ctx.restore();
+        }
+
+        function drawArms(ctx, x, y, state, time) {
+            ctx.save();
+            ctx.fillStyle = '#8C2D42';
+            ctx.strokeStyle = '#4A1525';
+            ctx.lineWidth = 14;
+            ctx.lineCap = 'round';
+            ctx.lineJoin = 'round';
+
+            // LEFT ARM
+            ctx.beginPath();
+            if (state.leftArmAngle > 0.5) {
+                ctx.moveTo(x - 55, y + 40);
+                ctx.quadraticCurveTo(x - 70, y - 10, x - 45, y - 50);
+            } else {
+                const typeOffset = Math.sin(time * 12) * 2;
+                ctx.moveTo(x - 55, y + 40);
+                ctx.quadraticCurveTo(x - 60, y + 100, x - 25, y + 120 + typeOffset);
+            }
+            ctx.stroke();
+
+            // RIGHT ARM
+            ctx.beginPath();
+            if (state.rightArmAngle > 1.5) {
+                ctx.moveTo(x + 55, y + 40);
+                ctx.quadraticCurveTo(x + 85, y + 90, x + 70, y + 160);
+            } else if (state.rightArmAngle > 0.5) {
+                const wave = Math.sin(time * 10) * 20;
+                ctx.moveTo(x + 55, y + 40);
+                ctx.quadraticCurveTo(x + 80, y - 10, x + 75 + wave, y - 60);
+            } else {
+                const typeOffset = Math.cos(time * 12) * 2;
+                ctx.moveTo(x + 55, y + 40);
+                ctx.quadraticCurveTo(x + 60, y + 100, x + 25, y + 120 + typeOffset);
+            }
+            ctx.stroke();
+
+            // Hands
+            ctx.fillStyle = '#FFDFC4';
+            ctx.beginPath();
+            if (state.leftArmAngle > 0.5) {
+                ctx.arc(x - 45, y - 50, 9, 0, Math.PI * 2);
+            } else {
+                ctx.arc(x - 25, y + 122, 8, 0, Math.PI * 2);
+            }
+            ctx.fill();
+
+            ctx.beginPath();
+            if (state.rightArmAngle > 1.5) {
+                ctx.arc(x + 70, y + 160, 9, 0, Math.PI * 2);
+                ctx.fillStyle = '#FFDFC4';
+                ctx.fillRect(x + 68, y + 164, 4, 10);
+            } else if (state.rightArmAngle > 0.5) {
+                const wave = Math.sin(time * 10) * 20;
+                ctx.arc(x + 75 + wave, y - 65, 10, 0, Math.PI * 2);
+            } else {
+                ctx.arc(x + 25, y + 122, 8, 0, Math.PI * 2);
+            }
+            ctx.fill();
+
+            ctx.restore();
+        }
+
+        function drawLaptop(ctx, x, y, time) {
+            ctx.save();
+            ctx.fillStyle = '#CBD5E1';
+            ctx.beginPath();
+            if (ctx.roundRect) {
+                ctx.roundRect(x - 85, y + 10, 170, 14, 4);
+            } else {
+                ctx.rect(x - 85, y + 10, 170, 14);
+            }
+            ctx.fill();
+
+            ctx.fillStyle = '#94A3B8';
+            ctx.fillRect(x - 20, y + 18, 40, 4);
+
+            ctx.fillStyle = '#94A3B8';
+            ctx.beginPath();
+            if (ctx.roundRect) {
+                ctx.roundRect(x - 75, y - 90, 150, 100, [8, 8, 0, 0]);
+            } else {
+                ctx.rect(x - 75, y - 90, 150, 100);
+            }
+            ctx.fill();
+
+            const screenGrad = ctx.createLinearGradient(x - 70, y - 85, x + 70, y - 5);
+            screenGrad.addColorStop(0, '#0F172A');
+            screenGrad.addColorStop(1, '#1E293B');
+            ctx.fillStyle = screenGrad;
+            ctx.beginPath();
+            if (ctx.roundRect) {
+                ctx.roundRect(x - 70, y - 85, 140, 90, 4);
+            } else {
+                ctx.rect(x - 70, y - 85, 140, 90);
+            }
+            ctx.fill();
+
+            ctx.fillStyle = 'rgba(56, 189, 248, 0.12)';
+            ctx.beginPath();
+            ctx.arc(x, y - 40, 75, 0, Math.PI * 2);
+            ctx.fill();
+
+            const colors = ['#38BDF8', '#F472B6', '#4ADE80', '#FBBF24'];
+            const lineOffset = (time * 15) % 12;
+            for (let i = 0; i < 5; i++) {
+                ctx.fillStyle = colors[i % colors.length];
+                const lineWidth = 30 + ((i * 17) % 50);
+                const lineY = y - 75 + i * 14 + (lineOffset > 6 ? 1 : 0);
+                ctx.fillRect(x - 60, lineY, lineWidth, 4);
+            }
+
+            ctx.fillStyle = '#E2E8F0';
+            ctx.beginPath();
+            ctx.arc(x, y - 40, 6, 0, Math.PI * 2);
+            ctx.fill();
+
+            ctx.restore();
+        }
+
+        function drawHead(ctx, x, y, state, time) {
+            ctx.save();
+            ctx.translate(x, y);
+            ctx.rotate(state.headAngle);
+
+            ctx.fillStyle = '#1A1A1A';
+            ctx.beginPath();
+            ctx.ellipse(0, 15, 52, 60, 0, 0, Math.PI * 2);
+            ctx.fill();
+
+            ctx.fillStyle = '#FFDFC4';
+            ctx.beginPath();
+            ctx.ellipse(0, 0, 36, 42, 0, 0, Math.PI * 2);
+            ctx.fill();
+
+            ctx.fillStyle = 'rgba(233, 30, 99, 0.18)';
+            ctx.beginPath();
+            ctx.arc(-20, 10, 8, 0, Math.PI * 2);
+            ctx.arc(20, 10, 8, 0, Math.PI * 2);
+            ctx.fill();
+
+            const eyeLX = -14 + state.eyeOffsetX * 0.5;
+            const eyeRX = 14 + state.eyeOffsetX * 0.5;
+            const eyeY = -4 + state.eyeOffsetY * 0.8;
+
+            ctx.fillStyle = '#FFFFFF';
+            ctx.beginPath();
+            ctx.ellipse(-14, -4, 7, 8, 0, 0, Math.PI * 2);
+            ctx.ellipse(14, -4, 7, 8, 0, 0, Math.PI * 2);
+            ctx.fill();
+
+            ctx.fillStyle = '#221510';
+            ctx.beginPath();
+            ctx.arc(eyeLX, eyeY, 4, 0, Math.PI * 2);
+            ctx.arc(eyeRX, eyeY, 4, 0, Math.PI * 2);
+            ctx.fill();
+
+            ctx.fillStyle = '#FFFFFF';
+            ctx.beginPath();
+            ctx.arc(eyeLX - 1, eyeY - 1, 1.5, 0, Math.PI * 2);
+            ctx.arc(eyeRX - 1, eyeY - 1, 1.5, 0, Math.PI * 2);
+            ctx.fill();
+
+            ctx.strokeStyle = '#221510';
+            ctx.lineWidth = 2.5;
+            ctx.lineCap = 'round';
+            ctx.beginPath();
+            ctx.moveTo(-21, -16);
+            ctx.quadraticCurveTo(-14, -20, -7, -16);
+            ctx.moveTo(7, -16);
+            ctx.quadraticCurveTo(14, -20, 21, -16);
+            ctx.stroke();
+
+            ctx.strokeStyle = 'rgba(140, 45, 66, 0.35)';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.moveTo(0, -2);
+            ctx.lineTo(-2, 6);
+            ctx.lineTo(2, 6);
+            ctx.stroke();
+
+            ctx.fillStyle = '#C2415C';
+            ctx.beginPath();
+            if (state.mouthState === 'talk') {
+                ctx.ellipse(0, 18, 6, 7, 0, 0, Math.PI * 2);
+            } else {
+                ctx.arc(0, 14, 10, 0.1 * Math.PI, 0.9 * Math.PI);
+                ctx.quadraticCurveTo(0, 16, 0, 14);
+            }
+            ctx.fill();
+
+            ctx.fillStyle = '#1A1A1A';
+            ctx.beginPath();
+            ctx.arc(0, -10, 40, Math.PI, 0);
+            ctx.quadraticCurveTo(42, 20, 38, 50);
+            ctx.lineTo(32, 50);
+            ctx.quadraticCurveTo(34, 10, 20, -15);
+            ctx.lineTo(-20, -15);
+            ctx.quadraticCurveTo(-34, 10, -32, 50);
+            ctx.lineTo(-38, 50);
+            ctx.quadraticCurveTo(-42, 20, -40, -10);
+            ctx.closePath();
+            ctx.fill();
+
+            ctx.restore();
+        }
+
+        function drawHeadset(ctx, headX, headY, state) {
+            ctx.save();
+            const pos = state.headsetPosition;
+            const hY = headY + pos * 55;
+            const hX = headX + state.headOffsetX * (1 - pos);
+
+            ctx.translate(hX, hY);
+            ctx.rotate(state.headAngle * (1 - pos));
+
+            ctx.strokeStyle = '#8C2D42';
+            ctx.lineWidth = 6;
+            ctx.beginPath();
+            if (pos > 0.5) {
+                ctx.arc(0, 25, 42, 0.1 * Math.PI, 0.9 * Math.PI);
+            } else {
+                ctx.arc(0, -18, 41, 0.85 * Math.PI, 0.15 * Math.PI, false);
+            }
+            ctx.stroke();
+
+            ctx.fillStyle = '#4A1525';
+            ctx.strokeStyle = '#FDF2F4';
+            ctx.lineWidth = 2;
+
+            const leftPadY = pos > 0.5 ? 40 : -2;
+            const rightPadY = pos > 0.5 ? 40 : -2;
+
+            ctx.beginPath();
+            ctx.ellipse(-40, leftPadY, 9, 16, 0, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.stroke();
+
+            ctx.beginPath();
+            ctx.ellipse(40, rightPadY, 9, 16, 0, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.stroke();
+
+            ctx.strokeStyle = '#CBD5E1';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.moveTo(-40, leftPadY + 5);
+            ctx.quadraticCurveTo(-35, leftPadY + 25, -20, leftPadY + 20);
+            ctx.stroke();
+
+            ctx.fillStyle = '#E91E63';
+            ctx.beginPath();
+            ctx.arc(-20, leftPadY + 20, 3, 0, Math.PI * 2);
+            ctx.fill();
+
+            ctx.restore();
+        }
+
+        requestAnimationFrame(render);
+    }
+
+    initInteractiveHero();
     console.log('Portfolio chargé avec succès !');
 });
 

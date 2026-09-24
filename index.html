@@ -37,30 +37,40 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
+    <!-- Interactive Portfolio Hero Section (Sri Tech Style) -->
+    <section id="home" class="hero interactive-hero">
+        <div class="hero-bg-glow"></div>
         <div class="hero-particles" id="particles"></div>
-        <div class="hero-content">
-            <div class="hero-text">
-                <div class="hero-badge">
+        
+        <!-- 3 Horizontal Interaction Zones Overlay -->
+        <div class="interaction-zones-overlay" id="interactionZones">
+            <div class="zone zone-left" data-zone="left"></div>
+            <div class="zone zone-center" data-zone="center"></div>
+            <div class="zone zone-right" data-zone="right"></div>
+        </div>
+
+        <div class="interactive-hero-container">
+            <!-- Left Side: Personal Intro & Cursor Instruction -->
+            <div class="hero-area-left">
+                <div class="hero-badge-pill">
                     <span class="badge-dot"></span>
                     Double Degree Student 🇹🇳 🇨🇳
                 </div>
-                <h1 class="hero-title">
-                    Hi, I'm <span class="gradient-text">Farah</span><br>
-                    <span class="rotating-titles">
-                        <span class="title-item">Cloud Engineer ☁️</span>
-                        <span class="title-item">DevOps Engineer 🚀</span>
-                        <span class="title-item">Full-Stack Developer 💻</span>
-                        <span class="title-item">Creative Problem Solver 🎨</span>
-                        <span class="title-item">ML Enthusiast 🤖</span>
-                    </span>
-                </h1>
-                <p class="hero-desc">
-                    Passionate software developer and Cloud Computing engineering student at ESPRIT & Beijing Polytechnic University. 
-                    Hands-on experience across cloud infrastructure, DevOps, backend, and frontend development.
-                </p>
-                <div class="hero-buttons">
+                
+                <div class="intro-note-card">
+                    <h1 class="hero-author-name">I'm Farah Ben Chikha</h1>
+                    <p class="hero-author-title">Cloud & DevOps Engineer</p>
+                    
+                    <div class="cursor-instruction-box">
+                        <div class="animated-cursor-indicator">
+                            <i class="fas fa-hand-pointer"></i>
+                            <div class="cursor-ripple"></div>
+                        </div>
+                        <span class="instruction-text">Move cursor to call me !</span>
+                    </div>
+                </div>
+
+                <div class="hero-cta-buttons">
                     <a href="#contact" class="btn-primary">
                         <i class="fas fa-paper-plane"></i> Get In Touch
                     </a>
@@ -68,36 +78,51 @@
                         <i class="fas fa-download"></i> Download CV
                     </a>
                 </div>
-                <div class="hero-stats">
-                    <div class="stat">
+
+                <div class="hero-stats-row">
+                    <div class="stat-item">
                         <span class="stat-number">12+</span>
                         <span class="stat-label">Projects</span>
                     </div>
-                    <div class="stat">
+                    <div class="stat-item">
                         <span class="stat-number">6+</span>
                         <span class="stat-label">Certifications</span>
                     </div>
-                    <div class="stat">
+                    <div class="stat-item">
                         <span class="stat-number">2</span>
                         <span class="stat-label">Countries</span>
                     </div>
                 </div>
             </div>
-            <div class="hero-image">
-                <div class="image-wrapper">
-                    <div class="image-glow"></div>
-                    <i class="fas fa-cloud-upload-alt floating-icon cloud-icon"></i>
-                    <i class="fas fa-code floating-icon code-icon"></i>
-                    <i class="fas fa-database floating-icon db-icon"></i>
-                    <div class="hero-avatar">
-                        <img src="assets/images/photo%20linkedin.jpg" alt="Farah Benchikha">
-                    </div>
+
+            <!-- Center Area: Large Interactive Character & Laptop Focus -->
+            <div class="hero-area-center">
+                <div class="character-backdrop-glow"></div>
+                <div class="character-wrapper" id="characterWrapper">
+                    <canvas id="characterCanvas" width="560" height="500"></canvas>
+                    <div class="character-stage" id="characterStage"></div>
+                </div>
+            </div>
+
+            <!-- Right Side: Contextual Reaction Message & Floating Status -->
+            <div class="hero-area-right">
+                <div class="contextual-message-box" id="contextualMessageBox">
+                    <div class="speech-bubble-tail"></div>
+                    <p class="contextual-text" id="contextualText">Move cursor to interact</p>
+                </div>
+
+                <div class="live-tech-pills">
+                    <span class="tech-pill"><i class="fab fa-aws"></i> Cloud Infra</span>
+                    <span class="tech-pill"><i class="fas fa-dharmachakra"></i> Kubernetes</span>
+                    <span class="tech-pill"><i class="fas fa-shield-alt"></i> DevSecOps</span>
+                    <span class="tech-pill"><i class="fas fa-robot"></i> AIOps</span>
                 </div>
             </div>
         </div>
-        <div class="scroll-indicator">
+
+        <div class="scroll-indicator" id="scrollCue">
             <div class="mouse"></div>
-            <span>Scroll</span>
+            <span>Scroll to explore portfolio</span>
         </div>
     </section>
 
