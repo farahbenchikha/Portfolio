@@ -1,0 +1,13 @@
+# netlify.toml - Netlify Configuration File
+
+[build]
+  publish = "."
+  command = ""
+
+# Enable HTTPS and Security Headers
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
