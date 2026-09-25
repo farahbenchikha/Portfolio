@@ -521,9 +521,9 @@ if (contactForm) {
             if (!roleEl) return;
             const roles = [
                 'Cloud & DevOps Engineer',
-                'DevSecOps Specialist',
+                'DevSecOps Architecture',
                 'AIOps & ML Systems',
-                'Kubernetes & Infra Expert'
+                'Kubernetes & Infrastructure'
             ];
             let roleIdx = 0;
             setInterval(() => {

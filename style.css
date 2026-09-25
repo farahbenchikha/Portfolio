@@ -1,14 +1,14 @@
 /* style.css - Version Féminine High-Tech Unified Dark Theme */
 
 :root {
-    /* Palette de couleurs unifiée high-tech & élégante */
+    /* Palette de couleurs unifiée high-tech: Cyber Magenta, Cyan & Sky Blue */
     --primary: #ff2a85;      /* Cyber Rose Magenta */
     --primary-light: #ff69b4;
     --primary-dark: #c2185b;
     --secondary: #00f2fe;    /* Cyber Cyan */
     --secondary-light: #70f3ff;
-    --accent: #a855f7;       /* Holographic Purple */
-    --accent-gradient: linear-gradient(135deg, #ff2a85, #a855f7, #00f2fe);
+    --accent: #38bdf8;       /* Sky Blue Accent */
+    --accent-gradient: linear-gradient(135deg, #ff2a85, #38bdf8, #00f2fe);
     
     --dark: #0f121d;         /* Uniform Deep Space Dark */
     --darker: #0b0d17;       /* Void Dark */
@@ -389,7 +389,7 @@ body {
 .hero-author-name {
     font-size: 1.9rem;
     font-weight: 800;
-    background: linear-gradient(135deg, #ff2a85 0%, #a855f7 50%, #00f2fe 100%);
+    background: linear-gradient(135deg, #ff2a85 0%, #38bdf8 50%, #00f2fe 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -465,7 +465,7 @@ body {
 }
 
 .hero-cta-buttons .btn-primary {
-    background: linear-gradient(135deg, #ff2a85, #9c27b0);
+    background: linear-gradient(135deg, #ff2a85, #00f2fe);
     color: #FFFFFF;
     padding: 0.8rem 1.4rem;
     border-radius: 12px;
@@ -2377,7 +2377,7 @@ section {
     left: 0;
     height: 4px;
     width: 0%;
-    background: linear-gradient(90deg, #ff2a85, #9c27b0, #00f2fe);
+    background: linear-gradient(90deg, #ff2a85, #38bdf8, #00f2fe);
     box-shadow: 0 0 12px rgba(255, 42, 133, 0.8);
     z-index: 99999;
     transition: width 0.1s ease-out;
@@ -2506,7 +2506,7 @@ section {
 .t-cyan { color: #00f2fe; font-weight: 600; }
 .t-green { color: #4ade80; }
 .t-yellow { color: #fbbf24; }
-.t-purple { color: #c084fc; }
+.t-purple { color: #38bdf8; font-weight: 600; }
 .t-dim { color: #94a3b8; }
 
 .terminal-output-line {
@@ -2593,7 +2593,7 @@ section {
 }
 
 .project-filter-btn.active {
-    background: linear-gradient(135deg, #ff2a85, #9c27b0);
+    background: linear-gradient(135deg, #ff2a85, #00f2fe);
     border-color: transparent;
     color: #ffffff;
     box-shadow: 0 8px 20px rgba(255, 42, 133, 0.4);
