@@ -296,7 +296,7 @@ if (contactForm) {
         const container = document.getElementById('particles');
         if (!container) return;
         
-        const colors = ['#e91e63', '#9c27b0', '#ff6e7f', '#f06292', '#ce93d8'];
+        const colors = ['#4a7c9f', '#6cb6c4', '#709ebf', '#9ed5df', '#e5a9b8'];
         
         for (let i = 0; i < 40; i++) {
             const particle = document.createElement('div');
