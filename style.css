@@ -1,14 +1,14 @@
 /* style.css - Version Féminine High-Tech Unified Dark Theme */
 
 :root {
-    /* Palette de couleurs unifiée high-tech: Cyber Magenta, Cyan & Sky Blue */
-    --primary: #ff2a85;      /* Cyber Rose Magenta */
-    --primary-light: #ff69b4;
-    --primary-dark: #c2185b;
-    --secondary: #00f2fe;    /* Cyber Cyan */
-    --secondary-light: #70f3ff;
-    --accent: #38bdf8;       /* Sky Blue Accent */
-    --accent-gradient: linear-gradient(135deg, #ff2a85, #38bdf8, #00f2fe);
+    /* Palette de couleurs pastel douce & élégante: Soft Rose Pink, Mint Cyan & Sky Blue */
+    --primary: #ff85a1;      /* Soft Rose Pink Pastel */
+    --primary-light: #ffa6c1;
+    --primary-dark: #e05275;
+    --secondary: #a0ecff;    /* Soft Mint Cyan Pastel */
+    --secondary-light: #c5f4ff;
+    --accent: #7dd3fc;       /* Sky Blue Pastel */
+    --accent-gradient: linear-gradient(135deg, #ff85a1, #7dd3fc, #a0ecff);
     
     --dark: #0f121d;         /* Uniform Deep Space Dark */
     --darker: #0b0d17;       /* Void Dark */
@@ -18,13 +18,13 @@
     
     --card-bg: rgba(18, 22, 36, 0.8);
     --card-bg-solid: #121624;
-    --border: rgba(255, 42, 133, 0.25);
-    --border-glow: rgba(255, 42, 133, 0.5);
+    --border: rgba(255, 133, 161, 0.25);
+    --border-glow: rgba(255, 133, 161, 0.5);
     
     --glass-effect: rgba(255, 255, 255, 0.04);
-    --glass-border: rgba(255, 42, 133, 0.25);
+    --glass-border: rgba(255, 133, 161, 0.25);
     
-    --success: #00f2fe;
+    --success: #a0ecff;
     --warning: #fbbf24;
     
     /* Animation */
@@ -263,7 +263,7 @@ body {
     transform: translate(-50%, -50%);
     width: 600px;
     height: 600px;
-    background: radial-gradient(circle, rgba(255, 42, 133, 0.25) 0%, rgba(168, 85, 247, 0.12) 45%, transparent 70%);
+    background: radial-gradient(circle, rgba(255, 133, 161, 0.25) 0%, rgba(160, 236, 255, 0.15) 45%, transparent 70%);
     pointer-events: none;
     z-index: 1;
     filter: blur(40px);
@@ -333,9 +333,9 @@ body {
 .hero-badge-pill .badge-dot {
     width: 8px;
     height: 8px;
-    background: #ff2a85;
+    background: #ff85a1;
     border-radius: 50%;
-    box-shadow: 0 0 8px #ff2a85;
+    box-shadow: 0 0 8px #ff85a1;
 }
 
 .intro-note-card {
@@ -389,7 +389,7 @@ body {
 .hero-author-name {
     font-size: 1.9rem;
     font-weight: 800;
-    background: linear-gradient(135deg, #ff2a85 0%, #38bdf8 50%, #00f2fe 100%);
+    background: linear-gradient(135deg, #ff85a1 0%, #7dd3fc 50%, #a0ecff 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -406,7 +406,7 @@ body {
 
 .dynamic-role {
     display: inline-block;
-    border-bottom: 2px solid #ff2a85;
+    border-bottom: 2px solid #ff85a1;
     color: #ff69b4;
     padding-bottom: 2px;
     transition: opacity 0.3s ease;
@@ -425,7 +425,7 @@ body {
     position: relative;
     width: 32px;
     height: 32px;
-    background: #ff2a85;
+    background: #ff85a1;
     color: #FFFFFF;
     border-radius: 50%;
     display: flex;
@@ -441,7 +441,7 @@ body {
     left: -4px;
     right: -4px;
     bottom: -4px;
-    border: 2px solid #ff2a85;
+    border: 2px solid #ff85a1;
     border-radius: 50%;
     animation: ripplePulse 1.8s infinite ease-out;
 }
@@ -465,7 +465,7 @@ body {
 }
 
 .hero-cta-buttons .btn-primary {
-    background: linear-gradient(135deg, #ff2a85, #00f2fe);
+    background: linear-gradient(135deg, #ff85a1, #a0ecff);
     color: #FFFFFF;
     padding: 0.8rem 1.4rem;
     border-radius: 12px;
@@ -495,9 +495,9 @@ body {
 }
 
 .hero-cta-buttons .btn-outline:hover {
-    background: #ff2a85;
+    background: #ff85a1;
     color: #FFFFFF;
-    border-color: #ff2a85;
+    border-color: #ff85a1;
 }
 
 .hero-stats-row {
@@ -519,7 +519,7 @@ body {
 .stat-number {
     font-size: 1.3rem;
     font-weight: 800;
-    color: #ff2a85;
+    color: #ff85a1;
 }
 
 .stat-label {
@@ -640,7 +640,7 @@ body {
 .tech-pill.pill-cloud { border-color: rgba(56, 189, 248, 0.5); color: #38bdf8; }
 .tech-pill.pill-k8s { border-color: rgba(99, 102, 241, 0.5); color: #818cf8; }
 .tech-pill.pill-sec { border-color: rgba(244, 63, 94, 0.5); color: #fb7185; }
-.tech-pill.pill-ai { border-color: rgba(168, 85, 247, 0.5); color: #c084fc; }
+.tech-pill.pill-ai { border-color: rgba(160, 236, 255, 0.5); color: #a0ecff; }
 .tech-pill.pill-tf { border-color: rgba(14, 165, 233, 0.5); color: #38bdf8; }
 .tech-pill.pill-docker { border-color: rgba(2, 132, 199, 0.5); color: #38bdf8; }
 
@@ -655,7 +655,7 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 0.4rem;
-    color: #8C2D42;
+    color: #ff85a1;
     font-size: 0.8rem;
     font-weight: 600;
     letter-spacing: 0.5px;
@@ -1715,7 +1715,7 @@ section {
     position: absolute;
     top: 10px;
     right: 10px;
-    background: linear-gradient(135deg, #FF2E93, #9C27B0);
+    background: linear-gradient(135deg, #ff85a1, #7dd3fc);
     color: #FFFFFF;
     font-size: 0.65rem;
     font-weight: 700;
@@ -2377,7 +2377,7 @@ section {
     left: 0;
     height: 4px;
     width: 0%;
-    background: linear-gradient(90deg, #ff2a85, #38bdf8, #00f2fe);
+    background: linear-gradient(90deg, #ff85a1, #7dd3fc, #a0ecff);
     box-shadow: 0 0 12px rgba(255, 42, 133, 0.8);
     z-index: 99999;
     transition: width 0.1s ease-out;
@@ -2418,7 +2418,7 @@ section {
 
 .sound-toggle-btn:hover {
     background: rgba(255, 42, 133, 0.25);
-    border-color: #ff2a85;
+    border-color: #ff85a1;
     box-shadow: 0 0 15px rgba(255, 42, 133, 0.4);
     transform: scale(1.05);
 }
@@ -2502,7 +2502,7 @@ section {
     padding-bottom: 0.75rem;
 }
 
-.t-pink { color: #ff2a85; font-weight: 700; }
+.t-pink { color: #ff85a1; font-weight: 700; }
 .t-cyan { color: #00f2fe; font-weight: 600; }
 .t-green { color: #4ade80; }
 .t-yellow { color: #fbbf24; }
@@ -2533,7 +2533,7 @@ section {
     font-family: inherit;
     font-size: 0.9rem;
     width: 100%;
-    caret-color: #ff2a85;
+    caret-color: #ff85a1;
 }
 
 .terminal-quick-pills {
@@ -2558,9 +2558,9 @@ section {
 }
 
 .term-pill:hover {
-    background: #ff2a85;
+    background: #ff85a1;
     color: #ffffff;
-    border-color: #ff2a85;
+    border-color: #ff85a1;
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(255, 42, 133, 0.35);
 }
@@ -2593,7 +2593,7 @@ section {
 }
 
 .project-filter-btn.active {
-    background: linear-gradient(135deg, #ff2a85, #00f2fe);
+    background: linear-gradient(135deg, #ff85a1, #a0ecff);
     border-color: transparent;
     color: #ffffff;
     box-shadow: 0 8px 20px rgba(255, 42, 133, 0.4);
@@ -2683,7 +2683,7 @@ section {
 }
 
 .kep-main-title span {
-    background: linear-gradient(135deg, #ff2a85, #00f2fe);
+    background: linear-gradient(135deg, #ff85a1, #a0ecff);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -2723,7 +2723,7 @@ section {
 
 .pillar-icon {
     font-size: 1.6rem;
-    color: #ff2a85;
+    color: #ff85a1;
 }
 
 .kep-pillar-card h3 {

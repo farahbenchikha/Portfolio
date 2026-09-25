@@ -1267,11 +1267,9 @@ function processTerminalInput(rawCmd) {
             outputHtml = `
                 <div class="t-pink">Available Commands:</div>
                 <div class="t-cyan">  help        <span class="t-dim">- Display command list</span></div>
-                <div class="t-cyan">  kep-status  <span class="t-dim">- Inspect Flagship KEP Cluster (Kubernetes, HashiCorp Vault, ELK, ArgoCD, AIOps)</span></div>
+                <div class="t-cyan">  kep         <span class="t-dim">- Inspect Flagship KEP Cluster (Kubernetes, HashiCorp Vault, ELK, ArgoCD, AIOps)</span></div>
                 <div class="t-cyan">  skills      <span class="t-dim">- Query Cloud, DevSecOps & AI technical stack</span></div>
                 <div class="t-cyan">  certs       <span class="t-dim">- Inspect verified certifications & diplomas</span></div>
-                <div class="t-cyan">  aws-status  <span class="t-dim">- Check live AWS Cloud & EKS cluster status</span></div>
-                <div class="t-cyan">  ai-pipeline <span class="t-dim">- Trigger simulated PyTorch anomaly training</span></div>
                 <div class="t-cyan">  cat bio.txt <span class="t-dim">- Read bio & double degree credentials</span></div>
                 <div class="t-cyan">  clear       <span class="t-dim">- Clear terminal screen</span></div>
             `;
@@ -1286,7 +1284,7 @@ function processTerminalInput(rawCmd) {
                 <div class="t-dim">[VM 3: elk-vault]  Zero-Trust HashiCorp Vault & ELK Stack ..... <span class="t-green">UNSEALED & STREAMING</span></div>
                 <div class="t-dim">[SECURITY] Falco Kernel Runtime Threat Monitoring ........... <span class="t-green">ACTIVE (0 Threats)</span></div>
                 <div class="t-dim">[GITOPS] ArgoCD Server-Side Apply Sync ..................... <span class="t-green">SYNCED (0 Drift)</span></div>
-                <div class="t-dim">[AIOps] Custom MCP Agent + K8sGPT Auto-Remediation ......... <span class="t-purple">AUTONOMOUS ACTIVE</span></div>
+                <div class="t-dim">[AIOps] Custom MCP Agent + K8sGPT Auto-Remediation ......... <span class="t-sky">AUTONOMOUS ACTIVE</span></div>
                 <div class="t-yellow">Result: Capstone KEP Platform 100% Production-Ready.</div>
             `;
             break;
@@ -1314,28 +1312,6 @@ function processTerminalInput(rawCmd) {
                 <div>  • <span class="t-cyan">NVIDIA AI for Anomaly Detection</span> (Competency)</div>
                 <div>  • <span class="t-cyan">SAP Cloud ERP</span> (Record of Achievement)</div>
                 <div>  • <span class="t-cyan">DELF B2 Diploma</span> (République Française)</div>
-            `;
-            break;
-
-        case 'aws-status':
-        case 'aws':
-            outputHtml = `
-                <div class="t-green">✔ AWS Cloud Infrastructure: ACTIVE</div>
-                <div class="t-dim">[US-EAST-1] Multi-AZ EKS Cluster ..... <span class="t-green">100% HEALTHY</span></div>
-                <div class="t-dim">[EU-WEST-1] Terraform Managed VPC ... <span class="t-green">100% HEALTHY</span></div>
-                <div class="t-dim">[CONTAINERS] Docker Image ECR Registry <span class="t-cyan">0 VULNERABILITIES</span></div>
-                <div class="t-yellow">Status: All Cloud Nodes Operational (Uptime: 99.99%)</div>
-            `;
-            break;
-
-        case 'ai-pipeline':
-        case 'ai':
-            outputHtml = `
-                <div class="t-purple">🤖 Executing AI Anomaly Detection Pipeline...</div>
-                <div class="t-dim">[Step 1/3] Loading PyTorch Tensor Dataset... <span class="t-green">DONE</span></div>
-                <div class="t-dim">[Step 2/3] Computing DBSCAN Feature Embeddings... <span class="t-green">DONE</span></div>
-                <div class="t-dim">[Step 3/3] Evaluating Security Threats... <span class="t-green">ACCURACY: 98.7%</span></div>
-                <div class="t-cyan">Result: Model Retrained & Deployed to MLOps Registry.</div>
             `;
             break;
 
