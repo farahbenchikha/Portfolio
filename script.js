@@ -1267,12 +1267,27 @@ function processTerminalInput(rawCmd) {
             outputHtml = `
                 <div class="t-pink">Available Commands:</div>
                 <div class="t-cyan">  help        <span class="t-dim">- Display command list</span></div>
+                <div class="t-cyan">  kep-status  <span class="t-dim">- Inspect Flagship KEP Cluster (Kubernetes, HashiCorp Vault, ELK, ArgoCD, AIOps)</span></div>
                 <div class="t-cyan">  skills      <span class="t-dim">- Query Cloud, DevSecOps & AI technical stack</span></div>
                 <div class="t-cyan">  certs       <span class="t-dim">- Inspect verified certifications & diplomas</span></div>
                 <div class="t-cyan">  aws-status  <span class="t-dim">- Check live AWS Cloud & EKS cluster status</span></div>
                 <div class="t-cyan">  ai-pipeline <span class="t-dim">- Trigger simulated PyTorch anomaly training</span></div>
                 <div class="t-cyan">  cat bio.txt <span class="t-dim">- Read bio & double degree credentials</span></div>
                 <div class="t-cyan">  clear       <span class="t-dim">- Clear terminal screen</span></div>
+            `;
+            break;
+
+        case 'kep-status':
+        case 'kep':
+            outputHtml = `
+                <div class="t-green">★ KEP (Kubernetes Enterprise Platform) STATUS: 100% ONLINE</div>
+                <div class="t-dim">[VM 1: k8s-master] Control Plane + ArgoCD + Kubewatch + K8sGPT <span class="t-green">HEALTHY (192.168.233.188)</span></div>
+                <div class="t-dim">[VM 2: k8s-worker] WokMaster Microservices + Vault Sidecar ... <span class="t-green">RUNNING (192.168.233.190)</span></div>
+                <div class="t-dim">[VM 3: elk-vault]  Zero-Trust HashiCorp Vault & ELK Stack ..... <span class="t-green">UNSEALED & STREAMING</span></div>
+                <div class="t-dim">[SECURITY] Falco Kernel Runtime Threat Monitoring ........... <span class="t-green">ACTIVE (0 Threats)</span></div>
+                <div class="t-dim">[GITOPS] ArgoCD Server-Side Apply Sync ..................... <span class="t-green">SYNCED (0 Drift)</span></div>
+                <div class="t-dim">[AIOps] Custom MCP Agent + K8sGPT Auto-Remediation ......... <span class="t-purple">AUTONOMOUS ACTIVE</span></div>
+                <div class="t-yellow">Result: Capstone KEP Platform 100% Production-Ready.</div>
             `;
             break;
 

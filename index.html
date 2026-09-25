@@ -69,7 +69,7 @@
                 
                 <div class="intro-note-card">
                     <div class="availability-status">
-                        <span class="pulse-green"></span> Open for Cloud & DevSecOps Roles
+                        <span class="pulse-green"></span> ★ Latest Project: KEP - Kubernetes Enterprise Platform
                     </div>
                     <h1 class="hero-author-name">I'm Farah Ben Chikha</h1>
                     <p class="hero-author-title">
@@ -382,12 +382,75 @@
                 </div>
                 <div class="terminal-quick-pills">
                     <button type="button" class="term-pill" onclick="runTerminalCmd('help')">$ help</button>
+                    <button type="button" class="term-pill" onclick="runTerminalCmd('kep-status')">$ kep status</button>
                     <button type="button" class="term-pill" onclick="runTerminalCmd('skills')">$ skills</button>
                     <button type="button" class="term-pill" onclick="runTerminalCmd('certs')">$ certs</button>
                     <button type="button" class="term-pill" onclick="runTerminalCmd('aws-status')">$ aws status</button>
                     <button type="button" class="term-pill" onclick="runTerminalCmd('ai-pipeline')">$ run ai-pipeline</button>
                     <button type="button" class="term-pill" onclick="runTerminalCmd('cat bio.txt')">$ cat bio.txt</button>
                     <button type="button" class="term-pill" onclick="runTerminalCmd('clear')">$ clear</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FLAGSHIP PROJECT SPOTLIGHT: KEP -->
+    <section id="kep" class="kep-spotlight-section">
+        <div class="container">
+            <div class="kep-featured-box">
+                <div class="kep-top-tag">
+                    <span class="pulse-green"></span> ★ MOST RECENT FLAGSHIP PROJECT 2026 • CAPSTONE ENGINEERING
+                </div>
+                <h2 class="kep-main-title">Kubernetes Enterprise Platform <span>(KEP)</span></h2>
+                <p class="kep-main-desc">
+                    Production-Grade Enterprise Cloud Infrastructure, Zero-Trust DevSecOps Architecture, Full ELK Telemetry & AI-Powered Cluster Self-Healing (AIOps). Designed and deployed on isolated multi-node virtual machines.
+                </p>
+
+                <!-- Architecture 5 Pillars -->
+                <div class="kep-pillars-grid">
+                    <div class="kep-pillar-card">
+                        <div class="pillar-icon"><i class="fas fa-server"></i></div>
+                        <h3>Infrastructure as Code</h3>
+                        <p>3 Multi-Node VMs (k8s-master, k8s-worker, elk-vault) automated via Terraform & VMware REST API.</p>
+                        <span class="pillar-badge">Terraform + VMware</span>
+                    </div>
+
+                    <div class="kep-pillar-card">
+                        <div class="pillar-icon"><i class="fas fa-shield-alt"></i></div>
+                        <h3>Zero-Trust Security</h3>
+                        <p>HashiCorp Vault with Shamir 3/5 unsealing, Vault Agent Sidecars in RAM (tmpfs), Falco kernel threat detection.</p>
+                        <span class="pillar-badge">HashiCorp Vault + Falco</span>
+                    </div>
+
+                    <div class="kep-pillar-card">
+                        <div class="pillar-icon"><i class="fas fa-chart-line"></i></div>
+                        <h3>Full ELK Telemetry</h3>
+                        <p>Centralized Elasticsearch 8.x, Logstash, Kibana, Filebeat & Metricbeat real-time metric streams.</p>
+                        <span class="pillar-badge">ELK + Kibana</span>
+                    </div>
+
+                    <div class="kep-pillar-card">
+                        <div class="pillar-icon"><i class="fas fa-sync-alt"></i></div>
+                        <h3>GitOps & CD Pipelines</h3>
+                        <p>ArgoCD continuous delivery with Server-Side Apply & Kubewatch real-time Webhook alert triggers.</p>
+                        <span class="pillar-badge">ArgoCD + Kubewatch</span>
+                    </div>
+
+                    <div class="kep-pillar-card">
+                        <div class="pillar-icon"><i class="fas fa-robot"></i></div>
+                        <h3>AIOps & Self-Healing</h3>
+                        <p>Custom MCP (Model Context Protocol) AI Agent + K8sGPT for automated root-cause diagnosis & incident remediation.</p>
+                        <span class="pillar-badge">AIOps + MCP Agent</span>
+                    </div>
+                </div>
+
+                <div class="kep-actions-row">
+                    <a href="assets/images/certs/Rapport_Final_de_stage_KEP.pdf" class="btn-primary" target="_blank" download>
+                        <i class="fas fa-file-pdf"></i> Download Complete Technical Report (PDF)
+                    </a>
+                    <a href="#projects" class="btn-outline">
+                        <i class="fas fa-play-circle"></i> Watch Demo Video
+                    </a>
                 </div>
             </div>
         </div>
@@ -404,12 +467,38 @@
             <!-- Project Category Filter Pills -->
             <div class="project-filter-tabs">
                 <button type="button" class="project-filter-btn active" data-filter="all">All Systems</button>
-                <button type="button" class="project-filter-btn" data-filter="cloud">Cloud & Azure ☁️</button>
+                <button type="button" class="project-filter-btn" data-filter="cloud">Cloud & Kubernetes ☁️</button>
+                <button type="button" class="project-filter-btn" data-filter="sec">DevSecOps & Security 🛡️</button>
                 <button type="button" class="project-filter-btn" data-filter="ai">AI & MLOps 🧠</button>
                 <button type="button" class="project-filter-btn" data-filter="fullstack">Full-Stack & Microservices 💻</button>
             </div>
 
             <div class="projects-grid">
+                <!-- Project 0: KEP (MOST RECENT & FLAGSHIP) -->
+                <div class="project-card featured-kep-card" data-category="cloud sec ai fullstack">
+                    <div class="project-badge-status"><span class="pulse-green"></span> ★ MOST RECENT FLAGSHIP 2026</div>
+                    <div class="project-carousel swiper project-swiper" data-swiper="kep">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <video controls poster="assets/images/certs/delf-b2.png" style="width:100%;height:100%;object-fit:cover;">
+                                    <source src="assets/videos/Demo-KEP.mov" type="video/mp4">
+                                </video>
+                            </div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Kubernetes Enterprise Platform (KEP)</h3>
+                        <p>Production-grade enterprise Kubernetes infrastructure with Terraform IaC, Ansible Vault, HashiCorp Vault Zero-Trust security, ELK telemetry stack, ArgoCD GitOps, and custom MCP AI self-healing agent.</p>
+                        <div class="project-tech"><span>Kubernetes</span><span>Terraform</span><span>HashiCorp Vault</span><span>ELK Stack</span><span>ArgoCD</span><span>AIOps (MCP)</span></div>
+                        <div class="project-links">
+                            <a href="assets/images/certs/Rapport_Final_de_stage_KEP.pdf" target="_blank" download><i class="fas fa-file-pdf"></i> Technical PDF Report</a>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Project 1: Pour la Forme -->
                 <div class="project-card" data-category="cloud fullstack">
                     <div class="project-badge-status"><span class="pulse-green"></span> AZURE CLOUD 4-TIER</div>
